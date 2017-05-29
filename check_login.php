@@ -1,4 +1,6 @@
 <html>
+
+test
 <body>
 
 <?php include("header.php"); ?>
@@ -16,24 +18,26 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$id = mysqli_real_escape_string($link, $_REQUEST["id"]);
-$pass = mysqli_real_escape_string($link, $_REQUEST["pw"]);
-	echo "ID: " .$id ." password: " .$pass;
+$id = mysqli_real_escape_string($link, $_REQUEST['id']);
+$pass = mysqli_real_escape_string($link, $_REQUEST['pw']);
+//echo "ID: $id  password: $pass\n";
 
  
 // attempt insert query execution
-$sql = "SELECT * FROM users WHERE id='$id' and password='$pass'";
+$sql = "SELECT * FROM user WHERE id='$id' and password='$pass'";
 $result=mysqli_query($link, $sql);
 
 // Mysql_num_row is counting table row
 $count=mysqli_num_rows($result);
+var_dump($count);
 // If result matched $username and $password, table row must be 1 row
-if($count==1)
+if($count > 0)
 {   
    // Register $username, $password and redirect to file "index.php"
    session_start();
-   $_SESSION['username'] = $user;
+   $_SESSION['username'] = $id;
    $_SESSION['password'] = $pass;
+   echo "ID: " .$id ." password: " .$pass;
    header("location:home.php");
 }
 else 

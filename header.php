@@ -15,13 +15,36 @@
 		</a>
 	</li>
 	
-	<li style="float:right;">
-		<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./sign_in.php">Sign In</a>
-	</li>
-	
-	<li style="float:left;">
-		<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./account.php">My Account</a>
-	</li>
+	<?php
+		session_start();
+		if(!isset($_SESSION['username'])){
+
+			echo'<li style="float:right;">
+				<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./create_account.php">Sign Up</a>
+			</li>	
+
+			<li style="float:right;">
+				<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./sign_in.php">Sign In</a>
+			</li>';
+		}
+
+		else {
+			echo'
+			<li style="float:right;">
+			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./logout.php">Log out</a>
+			</li>';
+
+			echo'
+			<li style="float:right;">
+			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="">Logged in as ' .$_SESSION['username'] .'</a>
+			</li>';
+
+			echo'
+			<li style="float:left;">
+			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./account.php">My Account</a>
+			</li>';
+		}
+	?>
 	
 	<li style="float:left;">
 		<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./books.php">Books</a>

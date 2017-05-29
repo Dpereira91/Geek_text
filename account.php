@@ -20,7 +20,7 @@
     <p style="margin-left: 20;"><input type="text" name="state" placeholder="State Abbreviation"></p>
 	<p style="margin-left: 20;"><input type="text" name="zip" placeholder="Zip Code"></p>
 	
-	<h3 style="margin-left: 20;">Credit Card Inofrmation</h3>
+	<h3 style="margin-left: 20;">Credit Card Information</h3>
 	
 	<p style="margin-left: 20;"><input type="text" name="card_num" placeholder="Credit Card Number"></p>
 	<p style="margin-left: 20;"><input type="text" name="cvv_num" placeholder="CVV Number"></p>

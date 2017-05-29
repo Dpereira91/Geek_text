@@ -6,7 +6,7 @@
 <body>
 
 <?php include("header.php");?>
-
+	
 <h2 style="margin-left: 20;">Site is currently under construction. Check back later!</h2>
 
 </body>
