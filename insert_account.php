@@ -46,7 +46,7 @@ foreach ($_REQUEST as $key => $value) {
 }
 
 $pass = crypt($pass, 'geek');
-echo "Encrypted password $pass";
+
 
 if ($invalidInput){
 	echo "Invalid input. Cannot insert values in database <br>";
