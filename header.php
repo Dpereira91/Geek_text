@@ -36,12 +36,7 @@
 
 			echo'
 			<li style="float:right;">
-			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="">Logged in as ' .$_SESSION['username'] .'</a>
-			</li>';
-
-			echo'
-			<li style="float:left;">
-			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./account.php">My Account</a>
+			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./account.php">'.$_SESSION['username'].'</a>
 			</li>';
 		}
 	?>
