@@ -5,20 +5,24 @@
 </head>
 <body>
 
-<?php include("header.php");?>
+<?php
+	include("header.php");
+	$link = mysqli_connect("localhost", "root", "", "geek_text");
+	$id = $_SESSION['username'];
+	
+	$sql = "SELECT * FROM user WHERE id='$id'";
+	$result=mysqli_query($link, $sql);
+		
+	$row = mysqli_fetch_array( $result );
+?>
 
 <h2 style="margin-left: 20;">Account Information</h2>
 
 <form action="update_profile.php" method="post">
 	<img src="default_avatar.jpg" border="1px" style="width:150px;height:150px; margin-left: 20;">
-	<p style="margin-left: 20;"><input type="text" name="id" placeholder="Nickname"></p>
-	
-	<h3 style="margin-left: 20;">Shipping / Billing Address</h3>
-	
-    <p style="margin-left: 20;"><input type="text" name="street" placeholder="Street Address"></p>
-    <p style="margin-left: 20;"><input type="text" name="city" placeholder="City"></p>
-    <p style="margin-left: 20;"><input type="text" name="state" placeholder="State Abbreviation"></p>
-	<p style="margin-left: 20;"><input type="text" name="zip" placeholder="Zip Code"></p>
+
+	<p style="margin-left: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
+	<p style="margin-left: 20;"><input name="email" type="text" value="<?php echo( htmlspecialchars( $row['email'] ) ); ?>" placeholder="email"/></p>
 	
 	<h3 style="margin-left: 20;">Credit Card Information</h3>
 	
@@ -53,6 +57,33 @@
 			<option value="year">26</option>
 		</select>
 	</p>
+	
+	<h3 style="margin-left: 20;">Shipping / Billing Address</h3>
+	
+	<?php
+		$sql = "SELECT * FROM shipping WHERE id='$id'";
+		$result1 = mysqli_query($link, $sql);
+		$row1 = mysqli_fetch_array( $result1 );
+	?>
+	
+	<p style="margin-left: 20;">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['street1'] ) ); ?>" name="street" placeholder="Street Address">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['city'] ) ); ?>" name="city" placeholder="City">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['state'] ) ); ?>" name="state" placeholder="State Abbreviation">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['zip_code'] ) ); ?>" name="zip" placeholder="Zip Code">
+		<input type="radio" name="preferred"><br>
+	</p>
+	
+	<?php while( $row = mysqli_fetch_array( $result ) ){ ?>
+    <p style="margin-left: 20;">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['street1'] ) ); ?>" name="street" placeholder="Street Address">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['city'] ) ); ?>" name="city" placeholder="City">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['state'] ) ); ?>" name="state" placeholder="State Abbreviation">
+		<input type="text" value="<?php echo( htmlspecialchars( $row1['zip_code'] ) ); ?>" name="zip" placeholder="Zip Code">
+		<!-- <input type="radio" name="preferred"><br> -->
+	</p>
+	<?php } ?>
+	
 	<input style="margin-left: 20;" type="submit" value="Save Changes">
 </form>
 

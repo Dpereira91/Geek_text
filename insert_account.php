@@ -46,7 +46,6 @@ foreach ($_REQUEST as $key => $value) {
 }
 
 $pass = crypt($pass, 'geek');
-echo "Encrypted password $pass";
 
 if ($invalidInput){
 	echo "Invalid input. Cannot insert values in database <br>";
@@ -65,6 +64,14 @@ else{
 		$sql = "INSERT INTO user(id, password, name, nickname, email, street1, street2, city, state, zip_code, 
 			short_zip_code) VALUES ('$id', '$pass', '$name', '$nickname', '$email', '$street1', '$street2', '$city',
 			'$state', '$zip', 'null')";
+		if(mysqli_query($link, $sql)){
+			echo "Records added successfully.";
+		}
+		else{
+			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+		}
+		
+		$sql = "INSERT INTO shipping VALUES ('$id', NULL, '1', '$street1', 'street2', '$city', '$state', '$zip', 'NULL')";
 		if(mysqli_query($link, $sql)){
 			echo "Records added successfully.";
 		}

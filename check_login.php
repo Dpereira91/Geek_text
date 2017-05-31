@@ -46,7 +46,6 @@ if($count > 0)
 }
 else 
 {
-   echo "Wrong username or password";
    header("location:sign_in.php");
 }
  

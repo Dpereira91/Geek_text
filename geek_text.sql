@@ -22,6 +22,9 @@ SET time_zone = "+00:00";
 -- Database: `geek_text`
 --
 
+CREATE DATABASE geek_text;
+USE geek_text;
+
 -- --------------------------------------------------------
 
 --
