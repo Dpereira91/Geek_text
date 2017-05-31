@@ -11,7 +11,7 @@
 
 <form action="check_login.php" method="post">
     <p style="margin-left: 20;"><input type="text" name="id" placeholder="User ID"></p>
-	<p style="margin-left: 20;"><input type="text" name="pw" placeholder="Password"></p>
+	<p style="margin-left: 20;"><input type="password" name="pw" placeholder="Password"></p>
     <input  style="margin-left: 20;" type="submit" value="Sign in">
 </form>
 

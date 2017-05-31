@@ -20,6 +20,10 @@ if($link === false){
 // Escape user inputs for security
 $id = mysqli_real_escape_string($link, $_REQUEST['id']);
 $pass = mysqli_real_escape_string($link, $_REQUEST['pw']);
+
+//encrypt password to compare to db
+$pass = crypt($pass, 'geek');
+
 //echo "ID: $id  password: $pass\n";
 
  
