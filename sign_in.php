@@ -17,5 +17,7 @@
 
 <br></br>
 
+	Don't have an account?<a style="margin-left: 20;" href="./create_account.php">Sign Up</a>
+	
 </body>
 </html>
