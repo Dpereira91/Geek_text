@@ -1,0 +1,11 @@
+.radio_item{
+	display: none !important;
+}
+
+.label_item {
+	opacity: 1;
+}
+
+.radio_item:checked + label {
+	opacity: 0.3;
+}

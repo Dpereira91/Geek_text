@@ -45,10 +45,6 @@
 		<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./books.php">Books</a>
 	</li>
 	
-	<li style="float:left;">
-		<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./configure.php">Database</a>
-	</li>
-	
 	<li style="float:center;">
 		<form style="margin:18px" action="search.php" method="post">
 			<input type="text" name="search" placeholder="Search Book...">

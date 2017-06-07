@@ -71,7 +71,7 @@ else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 		}
 		
-		$sql = "INSERT INTO shipping VALUES ('$id', NULL, '1', '$street1', 'street2', '$city', '$state', '$zip', 'NULL')";
+		$sql = "INSERT INTO shipping VALUES ('$id', NULL, '1', '$street1', '$street2', '$city', '$state', '$zip', 'NULL')";
 		if(mysqli_query($link, $sql)){
 			echo "Records added successfully.";
 		}
