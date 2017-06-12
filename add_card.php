@@ -2,11 +2,9 @@
 <body>
 
 <?php include("header.php"); ?>
-<?php include("insert_account_helper.php"); ?>
-
-<br></br>
 
 <?php
+
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 $link = mysqli_connect("localhost", "root", "", "geek_text");
@@ -17,34 +15,36 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$id = mysqli_real_escape_string($link, $_REQUEST['id']);
-$pass = mysqli_real_escape_string($link, $_REQUEST['pw']);
-$name = mysqli_real_escape_string($link, $_REQUEST['name']);
-$nickname = mysqli_real_escape_string($link, $_REQUEST['nickname']);
-$email = mysqli_real_escape_string($link, $_REQUEST['email']);
-$street1 = mysqli_real_escape_string($link, $_REQUEST['street1']);
-$street2 = mysqli_real_escape_string($link, $_REQUEST['street2']);
-$city = mysqli_real_escape_string($link, $_REQUEST['city']);
-$state = mysqli_real_escape_string($link, $_REQUEST['state']);
-$zip = mysqli_real_escape_string($link, $_REQUEST['zip']);
+$id = $_SESSION['username'];
+$cardNumber = mysqli_real_escape_string($link, $_REQUEST['card_num']);
+$cardCvv = mysqli_real_escape_string($link, $_REQUEST['cvv_num']);
+$cardStreet = mysqli_real_escape_string($link, $_REQUEST['card_street']);
+$cardCity = mysqli_real_escape_string($link, $_REQUEST['card_city']);
+$cardState = mysqli_real_escape_string($link, $_REQUEST['card_state']);
+$cardZip= mysqli_real_escape_string($link, $_REQUEST['card_zip']);
+$cardType= mysqli_real_escape_string($link, $_REQUEST['card_type']);
+$cardExpMonth= mysqli_real_escape_string($link, $_REQUEST['exp_month']);
+$cardExpYear= mysqli_real_escape_string($link, $_REQUEST['exp_year']);
+
+
 $invalidInput = false;
 //input validation
-foreach ($_REQUEST as $key => $value) {
-	if (strlen($value) == 0){
-		echo "$key is empty<br>";
-		$invalidInput = true;
-	} elseif (!validateInput($key, $value)){
-		echo "$key has invalid value $value<br>";
-		$invalidInput = true;
-	}
-}
-$pass = crypt($pass, 'geek');
-echo "Encrypted password $pass";
+// foreach ($_REQUEST as $key => $value) {
+// 	if (strlen($value) == 0){
+// 		echo "$key is empty<br>";
+// 		$invalidInput = true;
+// 	} elseif (!validateInput($key, $value)){
+// 		echo "$key has invalid value $value<br>";
+// 		$invalidInput = true;
+// 	}
+// }
+
+
 if ($invalidInput){
 	echo "Invalid input. Cannot insert values in database <br>";
 }
 else{
-	$sql = "SELECT * FROM user WHERE id='$id'";
+	$sql = "SELECT * FROM credit_card WHERE id='$id' and number = '$cardNumber'";
 	$result=mysqli_query($link, $sql);
 	// Mysql_num_row is counting table row
 	$count=mysqli_num_rows($result);
@@ -52,11 +52,13 @@ else{
 	if($count == 0)
 	{
 		// attempt insert query execution
-		$sql = "INSERT INTO user(id, password, name, nickname, email, street1, street2, city, state, zip_code, 
-			short_zip_code) VALUES ('$id', '$pass', '$name', '$nickname', '$email', '$street1', '$street2', '$city',
-			'$state', '$zip', 'null')";
+		$sql = "INSERT INTO credit_card(id, number, preferred, type, csv_code, exp_month, exp_year, billing_street1, billing_street2, 
+			billing_city, billing_state, billing_zip_code, billing_short_zip_code) VALUES ('$id', '$cardNumber', 'N',
+			 '$cardType', '$cardCvv', '$cardExpMonth', '$cardExpYear' ,'$cardStreet', 'null', '$cardCity', '$cardState',
+			'$cardZip', 'null')";
 		if(mysqli_query($link, $sql)){
-			echo "Records added successfully.";
+			//echo "Records added successfully.";
+			header("location:account.php");
 		}
 		else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

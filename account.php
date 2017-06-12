@@ -1,8 +1,26 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Account</title>
-</head>
+	<meta charset="UTF-8">
+	<title>Account</title>
+
+	<style>
+		.table th.fit,
+		.table td.fit{
+			font-family: Calibri (Body);
+			font-size: 14px;
+			white-space: nowrap;
+			width: 1%;
+		}
+		.line-divider {
+			width: auto;
+			height: 1px;
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-top: 50px;
+			background-color: #AEB6BF;
+		}
+	</style>
+	</head>
 <body>
 
 <?php
@@ -59,41 +77,7 @@
 
 	<p style="margin-left: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
 	<p style="margin-left: 20;"><input name="email" type="text" value="<?php echo( htmlspecialchars( $row['email'] ) ); ?>" placeholder="email"/></p>
-	
-	<h3 style="margin-left: 20;">Credit Card Information</h3>
-	
-	<p style="margin-left: 20;"><input type="text" name="card_num" placeholder="Credit Card Number"></p>
-	<p style="margin-left: 20;"><input type="text" name="cvv_num" placeholder="CVV Number"></p>
-	<p style="margin-left: 20;"><label>Expiration:</label>
-		<select>
-			<option value="month"> </option>
-			<option value="month">1</option>
-			<option value="month">2</option>
-			<option value="month">3</option>
-			<option value="month">4</option>
-			<option value="month">5</option>
-			<option value="month">6</option>
-			<option value="month">7</option>
-			<option value="month">8</option>
-			<option value="month">9</option>
-			<option value="month">10</option>
-			<option value="month">11</option>
-			<option value="month">12</option>
-		</select>
-		<select>
-			<option value="year"> </option>
-			<option value="year">18</option>
-			<option value="year">19</option>
-			<option value="year">20</option>
-			<option value="year">21</option>
-			<option value="year">22</option>
-			<option value="year">23</option>
-			<option value="year">24</option>
-			<option value="year">25</option>
-			<option value="year">26</option>
-		</select>
-	</p>
-	
+
 	<h3 style="margin-left: 20;">Shipping / Billing Address</h3>
 	
 	<?php
@@ -131,6 +115,71 @@
 		<input style="margin-left: 20;" type="submit" value="Add Address">
 	</p>
 </form>
+
+<div class="line-divider"></div>
+
+<!-- *************************************************************************************************************************************************** -->
+<!--Credit Card section-->
+<!-- *************************************************************************************************************************************************** -->
+
+<br>
+<br>
+<h3 style="margin-left: 20;">Credit Card Preferences</h3>
+
+<!-- Add new card -->
+<script>
+// <!-- JQuery function to unhide form to add a new credit card on button click-->
+	$(document).ready(function(){
+	    $("#addCardButton").click(function(){
+	        $("#enterNewCard").show();
+	        $("#addCardButton").hide();
+	    });
+
+
+
+	   	//function to select preferred credit card through a radio button
+		var radioButton = $("input.preferred-select");
+		radioButton.click(function(){
+		  	var thisButton = $(this);
+		  	
+		    if(thisButton.val() == "N"){
+		      thisButton.val("Y");
+		        $("#card_table").find(".preferred-select").each(function() {
+		          $(this).val("N");
+		          $(this).prop("checked", false);
+		        }); 
+		      thisButton.val("Y");
+		      thisButton.prop("checked", true);
+		    }
+
+		});
+
+	});
+</script>
+
+
+
+<p><button id="addCardButton" style="margin-left: 20;" class="btn btn-success">Add New Card</button></p>
+<!-- new credit card form -->
+<?php include("credit_card_form.php");?>
+
+
+
+
+	<?php
+		$card_sql = "SELECT * FROM credit_card WHERE id='$id'";
+		$result2 = mysqli_query($link, $card_sql);
+		// $row2 = mysqli_fetch_array( $result2 );
+
+		$count=mysqli_num_rows($result2);
+
+		if ($count != 0){
+			include("existing_cards.php");
+		}
+	?>
+
+<br>
+<br>
 
 </body>
 </html>

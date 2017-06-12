@@ -11,7 +11,7 @@
 
 <form action="insert_account.php" method="post">
 	<p style="margin-left: 20;"><input type="text" name="id" placeholder="User ID"></p>
-	<p style="margin-left: 20;"><input type="text" name="pw" placeholder="Enter Password">At least 8 characters, one capital, and one number</p>
+	<p style="margin-left: 20;"><input type="password" name="pw" placeholder="Enter Password">At least 8 characters, one capital, and one number</p>
 	<p style="margin-left: 20;"><input type="text" name="name" placeholder="Name"></p>
 	<p style="margin-left: 20;"><input type="text" name="nickname" placeholder="Nickname"></p>
 	<p style="margin-left: 20;"><input type="text" name="email" placeholder="Email"></p>
