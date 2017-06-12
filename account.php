@@ -62,16 +62,16 @@
 			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
 		}
 		elseif($row['avatar'] == '8'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow4.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
 		}
 		elseif($row['avatar'] == '9'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow5.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
 		}
 		elseif($row['avatar'] == '10'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow6.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
 		}
 		elseif($row['avatar'] == '11'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow7.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol4.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
 		}
 	?>
 
