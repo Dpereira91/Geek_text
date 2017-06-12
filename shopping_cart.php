@@ -29,5 +29,9 @@
 	</tr>
 </table>
 
+<br><br>
+<form action="guest_checkout_form.php" method="post">
+<p><input style="margin-left: 20;" type="submit" class="btn btn-success" value="Checkout"></p>
+</form>
 </body>
 </html>

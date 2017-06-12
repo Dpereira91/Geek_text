@@ -133,6 +133,7 @@
 	    $("#addCardButton").click(function(){
 	        $("#enterNewCard").show();
 	        $("#addCardButton").hide();
+	        $("#addNewCreditCard").show();
 	    });
 
 
@@ -161,6 +162,8 @@
 
 <p><button id="addCardButton" style="margin-left: 20;" class="btn btn-success">Add New Card</button></p>
 <!-- new credit card form -->
+<form id="enterNewCard" action="add_card.php" method="post" style="display:none;">
+<h5 style="margin-left: 20;"> New Card Details</h5>
 <?php include("credit_card_form.php");?>
 
 

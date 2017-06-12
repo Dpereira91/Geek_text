@@ -1,9 +1,5 @@
 <!-- This form is used to add a new credir card for the customer. It's used from account.php file -->
 
-
-
-<form id="enterNewCard" action="add_card.php" method="post" style="display:none;">
-	<h5 style="margin-left: 20;"> New Card Details</h5>
 	<p style="margin-left: 20;"><input type="text" name="card_num" placeholder="Credit Card Number"></p>
 	<p style="margin-left: 20;"><input type="text" name="cvv_num" placeholder="CVV Number"></p>
 	<p style="margin-left: 20;">
@@ -52,7 +48,6 @@
 			<option value=<?php echo $year + 9; ?>><?php echo $year + 9;?></option>
 			<option value=<?php echo $year + 10; ?>><?php echo $year + 10;?></option> 
 		</select>
-
-		<p><input style="margin-left: 20;" type="submit" class="btn btn-success" value="Add"></p>
+	<p><input style="margin-left: 20;  display:none;" id="addNewCreditCard" type="submit" class="btn btn-success" value="Add"></p>
 	</p>
 </form>
