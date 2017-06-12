@@ -1,63 +1,62 @@
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<ul style="list-style-type:none; margin:-10; padding:0; overflow:hidden; background-color:black;">
-	<li style="float:left;">
-		<a style="display:block; color:chartreuse; text-align:center; padding:10px 16px; font-family:courier new; font-size:25; text-decoration:none;" href="./home.php"><big><strong>GeekText</strong></big></a>
-	</li>
-	
-	<li style="float:right;">
-		<a style="display:block; color:white; text-align:center; padding:15px 25px; text-decoration:none;" href="./shopping_cart.php">
-			<i class="fa fa-cart-plus" style="font-size:25px"></i>
-		</a>
-	</li>
-	
-	<?php
-		session_start();
-		if(!isset($_SESSION['username'])){
-
-			echo'<li style="float:right;">
-				<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./create_account.php">Sign Up</a>
-			</li>	
-
-			<li style="float:right;">
-				<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./sign_in.php">Sign In</a>
-			</li>';
-		}
-
-		else {
-			echo'
-			<li style="float:right;">
-			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./logout.php">Log out</a>
-			</li>';
-
-			echo'
-			<li style="float:right;">
-			<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./account.php">'.$_SESSION['username'].'</a>
-			</li>';
-		}
-	?>
-	
-	<li style="float:left;">
-		<a style="display:block; color:white; text-align:center; padding:18px 16px; text-decoration:none;" href="./books.php">Books</a>
-	</li>
-	
-	<li style="float:center;">
-		<form style="margin:18px" action="search.php" method="post">
-			<input type="text" name="search" placeholder="Search Book...">
-			<button type="submit" style="display:inline-block; color:black;"><i class="fa fa-search" style="font-size:14px"></i></button>
-		</form> 
-    </li>
-</ul>
-
-<!-- border-left:1px solid #bbb; -->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<a class="navbar-brand" href="./home.php" style="color:chartreuse; font-size: 24;"><big><strong>GeekText</strong></big></a>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Books</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="#">Genre</a>
+					<a class="dropdown-item" href="#">Best Sellers</a>
+					<a class="dropdown-item" href="#">Top Rated</a>
+				</div>
+			</li>
+			<li>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="text" placeholder="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</li>
+			<?php
+				session_start();
+				if(!isset($_SESSION['username'])){
+					echo'<li style="float:right;">
+							<a class="nav-link" href="./sign_in.php">Sign In</a>
+						</li>
+						<li class="nav-item" style="float:right;">
+							<a class="nav-link" href="./create_account.php">Sign Up</a>
+						</li>';
+				}
+				else {
+					echo'<li class="nav-item dropdown" style="float:right;">
+							<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['username'].'</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="./account.php">My Account</a>
+								<a class="dropdown-item" href="logout.php">Sign Out</a>
+							</div>
+						</li>';
+				}
+			?>
+			<li class="nav-item">
+				<a class="nav-link" href="./shopping_cart.php">
+					<i class="fa fa-cart-plus" style="font-size:25px"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
 
 </body>
 </html>

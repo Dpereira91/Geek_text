@@ -5,8 +5,6 @@ test
 
 <?php include("header.php"); ?>
 
-<br></br>
-
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
@@ -38,10 +36,8 @@ var_dump($count);
 if($count > 0)
 {   
    // Register $username, $password and redirect to file "index.php"
-   session_start();
    $_SESSION['username'] = $id;
    $_SESSION['password'] = $pass;
-   echo "ID: " .$id ." password: " .$pass;
    header("location:home.php");
 }
 else 
