@@ -80,7 +80,7 @@
 		}
 	?>
 
-	<p style="margin-left: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
+	<p style="margin-left: 20; margin-top: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
 	<p style="margin-left: 20;"><input name="email" type="text" value="<?php echo( htmlspecialchars( $row['email'] ) ); ?>" placeholder="email"/></p>
 	<input style="margin-left: 20;" type="submit" value="Save Changes" class="btn btn-success">
 </form>
@@ -93,7 +93,7 @@
 
 
 
-<div class="container">
+<div class="container" style="margin-left: 10;">
   <h2>Account Information</h2>
   <p>Navigate through the tabs to update your personal information</p>
 
@@ -115,7 +115,7 @@
 	  <div class="container"> 
 			<form action="add_address.php" method="post">
 				<table class="table table-striped">
-				<p style="margin-left: 20;">
+				<p>
 					<tbody>
 					<td><input type="text" name="street" placeholder="Street Address"></td>
 					<td><input type="text" name="city" placeholder="City"></td>

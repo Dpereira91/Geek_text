@@ -8,7 +8,6 @@
         <th class="fit">Zip Code</th>
         <th class="fit hidden-element"></th>
         <th class="fit">Preferred</th>
-
       </tr>
     </thead>
     <tbody>

@@ -16,6 +16,7 @@
     <ul class="nav navbar-nav">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Books<span class="caret"></span></a>
         <ul class="dropdown-menu">
+		  <li><a href="./books.php">All</a></li>
           <li><a href="#">Genre</a></li>
           <li><a href="#">Best Seller</a></li>
           <li><a href="#">Top Rated</a></li>
@@ -26,7 +27,7 @@
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default">Search</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
 
