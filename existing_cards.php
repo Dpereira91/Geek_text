@@ -1,5 +1,5 @@
 
-<div class="container" style="margin-left: 20;">        
+<div class="container">        
   <table id="card_table" class="table table-striped">
     <thead>
       <tr>

@@ -19,6 +19,11 @@
 			margin-top: 50px;
 			background-color: #AEB6BF;
 		}
+
+		.hidden-element{
+			width: 0px;
+			height: 0px;
+		}
 	</style>
 	</head>
 <body>
@@ -77,97 +82,81 @@
 
 	<p style="margin-left: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
 	<p style="margin-left: 20;"><input name="email" type="text" value="<?php echo( htmlspecialchars( $row['email'] ) ); ?>" placeholder="email"/></p>
-
-	<h3 style="margin-left: 20;">Shipping / Billing Address</h3>
-	
-	<?php
-		$sql = "SELECT * FROM shipping WHERE id='$id'";
-		$result1 = mysqli_query($link, $sql);
-		$row1 = mysqli_fetch_array( $result1 );
-	?>
-	
-	<p style="margin-left: 20;">
-		<input type="text" value="<?php echo( htmlspecialchars( $row1['street1'] ) ); ?>" name="street" placeholder="Street Address">
-		<input type="text" value="<?php echo( htmlspecialchars( $row1['city'] ) ); ?>" name="city" placeholder="City">
-		<input type="text" value="<?php echo( htmlspecialchars( $row1['state'] ) ); ?>" name="state" placeholder="State Abbreviation">
-		<input type="text" value="<?php echo( htmlspecialchars( $row1['zip_code'] ) ); ?>" name="zip" placeholder="Zip Code">
-		<label>Preferred</label>
-	</p>
-	
-	<?php while( $row = mysqli_fetch_array( $result1 ) ){ ?>
-    <p style="margin-left: 20;">
-		<input type="text" value="<?php echo( htmlspecialchars( $row['street1'] ) ); ?>" placeholder="Street Address">
-		<input type="text" value="<?php echo( htmlspecialchars( $row['city'] ) ); ?>" placeholder="City">
-		<input type="text" value="<?php echo( htmlspecialchars( $row['state'] ) ); ?>" placeholder="State Abbreviation">
-		<input type="text" value="<?php echo( htmlspecialchars( $row['zip_code'] ) ); ?>" placeholder="Zip Code">
-	</p>
-	<?php } ?>
-	
-	<input style="margin-left: 20;" type="submit" value="Save Changes">
+	<input style="margin-left: 20;" type="submit" value="Save Changes" class="btn btn-success">
 </form>
 
-<form action="add_address.php" method="post">
-	<p style="margin-left: 20;">
-		<input type="text" name="street" placeholder="Street Address">
-		<input type="text" name="city" placeholder="City">
-		<input type="text" name="state" placeholder="State Abbreviation">
-		<input type="text" name="zip" placeholder="Zip Code">
-		<input style="margin-left: 20;" type="submit" value="Add Address">
-	</p>
-</form>
-
-<div class="line-divider"></div>
-
+	<div class="line-divider"></div>
+	<br><br>
 <!-- *************************************************************************************************************************************************** -->
-<!--Credit Card section-->
+<!--Address Section-->
 <!-- *************************************************************************************************************************************************** -->
 
-<br>
-<br>
-<h3 style="margin-left: 20;">Credit Card Preferences</h3>
-
-<!-- Add new card -->
-<script>
-// <!-- JQuery function to unhide form to add a new credit card on button click-->
-	$(document).ready(function(){
-	    $("#addCardButton").click(function(){
-	        $("#enterNewCard").show();
-	        $("#addCardButton").hide();
-	        $("#addNewCreditCard").show();
-	    });
 
 
+<div class="container">
+  <h2>Account Information</h2>
+  <p>Navigate through the tabs to update your personal information</p>
 
-	   	//function to select preferred credit card through a radio button
-		var radioButton = $("input.preferred-select");
-		radioButton.click(function(){
-		  	var thisButton = $(this);
-		  	
-		    if(thisButton.val() == "N"){
-		      thisButton.val("Y");
-		        $("#card_table").find(".preferred-select").each(function() {
-		          $(this).val("N");
-		          $(this).prop("checked", false);
-		        }); 
-		      thisButton.val("Y");
-		      thisButton.prop("checked", true);
-		    }
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#addresses">Address Preferences</a></li>
+    <li><a data-toggle="tab" href="#creditCard">Credit Card Preferences</a></li>
+  </ul>
 
-		});
+  <div class="tab-content">
 
-	});
-</script>
+  	<!-- *************************-->
+	<!--Addresses section-->
+	<!-- *************************-->
+    <div id="addresses" class=" tab-pane fade in active">
+      <h3>Shipping / Billing Address</h3>
+      <p>Add new address. Review and update</p>
+
+      <!-- Add new Address -->
+	  <div class="container"> 
+			<form action="add_address.php" method="post">
+				<table class="table table-striped">
+				<p style="margin-left: 20;">
+					<tbody>
+					<td><input type="text" name="street" placeholder="Street Address"></td>
+					<td><input type="text" name="city" placeholder="City"></td>
+					<td><input type="text" name="state" placeholder="State Abbreviation"></td>
+					<td><input type="text" name="zip" placeholder="Zip Code"></td>
+					<td><input style="margin-left: 20;" type="submit" value="Add Address" class="btn btn-success"></td>
+					</tbody>	
+				</p>
+			</table>
+			</form>
+		</div>
 
 
+		<!-- Existing Address -->
+		<?php
+			$sql = "SELECT * FROM shipping WHERE id='$id'";
+			$result1 = mysqli_query($link, $sql);
+			$count=mysqli_num_rows($result1);
 
-<p><button id="addCardButton" style="margin-left: 20;" class="btn btn-success">Add New Card</button></p>
-<!-- new credit card form -->
-<form id="enterNewCard" action="add_card.php" method="post" style="display:none;">
-<h5 style="margin-left: 20;"> New Card Details</h5>
-<?php include("credit_card_form.php");?>
+			if ($count != 0){
+				include("existing_addresses.php");
+			}
+		?>
+      </div>
+
+	<!-- *************************-->
+	<!--Credit Card section-->
+	<!-- *************************-->
+    <div id="creditCard" class="tab-pane fade">
+      <h3>Credit Card</h3>
+      <p>Enter your credit card preferences</p>
 
 
+	<!-- new credit card form -->
+	<p><button id="addCardButton" class="btn btn-success">Add New Card</button></p>
+	<form id="enterNewCard" action="add_card.php" method="post" style="display:none;">
+	<h5 style="margin-left: 20;"> New Card Details</h5>
+	<?php include("credit_card_form.php");?>
 
+
+	<!-- existing credit card form -->
 
 	<?php
 		$card_sql = "SELECT * FROM credit_card WHERE id='$id'";
@@ -180,9 +169,62 @@
 			include("existing_cards.php");
 		}
 	?>
+    </div>   
 
-<br>
-<br>
+  </div>
+</div>
 
+
+<script>
+// <!-- JQuery function to unhide form to add a new credit card on button click-->
+	$(document).ready(function(){
+	    $("#addCardButton").click(function(){
+	        $("#enterNewCard").show();
+	        $("#addCardButton").hide();
+	        $("#addNewCreditCard").show();
+	    });
+
+
+
+   	//function to select preferred credit card through a radio button
+	var radioButton = $("input.preferred-select");
+	radioButton.click(function(){
+	  	var thisButton = $(this);
+	  	
+	    if(thisButton.val() == "N"){
+	      thisButton.val("Y");
+	        $("#card_table").find(".preferred-select").each(function() {
+	          $(this).val("N");
+	          $(this).prop("checked", false);
+	        }); 
+	      thisButton.val("Y");
+	      thisButton.prop("checked", true);
+	    }
+
+	});
+
+
+
+
+	//function to select preferred address through a radio button
+	var radioButton = $("input.preferred-address");
+	radioButton.click(function(){
+	  	var thisButton = $(this);
+	  	
+	    if(thisButton.val() == "0"){
+	      thisButton.val("1");
+	        $("#address_table").find(".preferred-address").each(function() {
+	          $(this).val("0");
+	          $(this).prop("checked", false);
+	        }); 
+	      thisButton.val("1");
+	      thisButton.prop("checked", true);
+	    }
+
+	});
+
+
+	});
+</script>
 </body>
 </html>

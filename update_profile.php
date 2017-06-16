@@ -18,19 +18,7 @@ if($link === false){
 // Escape user inputs for security
 $id = $_SESSION['username'];
 $nickname = mysqli_real_escape_string($link, $_REQUEST['nickname']);
-$street = mysqli_real_escape_string($link, $_REQUEST['street']);
-$city = mysqli_real_escape_string($link, $_REQUEST['city']);
-$state = mysqli_real_escape_string($link, $_REQUEST['state']);
-$zip = mysqli_real_escape_string($link, $_REQUEST['zip']);
 
-// attempt insert query execution
-$sql = "UPDATE shipping SET street1='$street', city='$city', state='$state', zip_code='$zip' WHERE id='$id' AND preferred='1'";
-
-if(mysqli_query($link, $sql)){
-    echo "Records updated successfully.";
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-}
 
 $sql = "UPDATE user SET nickname='$nickname' WHERE id='$id'";
 
