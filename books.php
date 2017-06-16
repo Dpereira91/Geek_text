@@ -73,7 +73,8 @@
 		transform: scale(1.10);
 	}
 	figure {
-		margin: 0;
+		margin-left: 32px;
+		margin-top: 16px;
 		overflow: hidden;
 	}
 	figcaption {
