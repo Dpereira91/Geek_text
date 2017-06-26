@@ -38,54 +38,57 @@
 	$row = mysqli_fetch_array( $result );
 ?>
 
-<h2 style="margin-left: 20;">Account Information</h2>
+<div class="row"> 
+    <div class="col-md-2 col-md-offset-5">
+    	<form action="update_profile.php" method="post">
+		<?php
+			if($row['avatar'] == '0'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '1'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '2'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '3'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '4'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/ow.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '5'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/ow1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '6'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/ow2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '7'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/ow3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '8'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/lol1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '9'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/lol2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '10'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/lol3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+			elseif($row['avatar'] == '11'){
+				echo'<a href="./avatar_select.php"><img src="avatar_icon/lol4.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
+			}
+		?>
 
-<form action="update_profile.php" method="post">
-	<?php
-		if($row['avatar'] == '0'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '1'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '2'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '3'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/avatar3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '4'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '5'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '6'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '7'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/ow3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '8'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol1.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '9'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol2.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '10'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol3.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-		elseif($row['avatar'] == '11'){
-			echo'<a href="./avatar_select.php"><img src="avatar_icon/lol4.png" border="1px" style="width:150px;height:150px; margin-left: 20;"></a>';
-		}
-	?>
+		<p style="margin-left: 20; margin-top: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
+		<p style="margin-left: 20;"><input name="email" type="text" value="<?php echo( htmlspecialchars( $row['email'] ) ); ?>" placeholder="email"/></p>
+		<input style="margin-left: 20;" type="submit" value="Save Changes" class="btn btn-success">
+		</form>	
+    </div>
+</div>
 
-	<p style="margin-left: 20; margin-top: 20;"><input name="nickname" type="text" value="<?php echo( htmlspecialchars( $row['nickname'] ) ); ?>" placeholder="Nickname"/></p>
-	<p style="margin-left: 20;"><input name="email" type="text" value="<?php echo( htmlspecialchars( $row['email'] ) ); ?>" placeholder="email"/></p>
-	<input style="margin-left: 20;" type="submit" value="Save Changes" class="btn btn-success">
-</form>
 
-	<div class="line-divider"></div>
+	<!-- <div class="line-divider"></div> -->
 	<br><br>
 <!-- *************************************************************************************************************************************************** -->
 <!--Address Section-->
@@ -108,7 +111,7 @@
 	<!--Addresses section-->
 	<!-- *************************-->
     <div id="addresses" class=" tab-pane fade in active">
-      <h3>Shipping / Billing Address</h3>
+      <h4>Shipping / Billing Address</h4>
       <p>Add new address. Review and update</p>
 
       <!-- Add new Address -->
@@ -145,7 +148,7 @@
 	<!--Credit Card section-->
 	<!-- *************************-->
     <div id="creditCard" class="tab-pane fade">
-      <h3>Credit Card</h3>
+      <h4>Credit Card</h4>
       <p>Enter your credit card preferences</p>
 
 
