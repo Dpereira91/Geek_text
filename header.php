@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body> 
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -17,9 +17,9 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Books<span class="caret"></span></a>
         <ul class="dropdown-menu">
 		  <li><a href="./books.php">All</a></li>
-          <li><a href="#">Genre</a></li>
+          <li><a href="book_genre.php">Genre</a></li>
           <li><a href="#">Best Seller</a></li>
-          <li><a href="#">Top Rated</a></li>
+          <li><a href="book_rating.php">Rating</a></li>
         </ul>
       </li>
     </ul>
@@ -45,7 +45,11 @@
 	        				</ul>
      					</li>';
 				}
-    ?>	
+    ?>
+
+     <li style="float:right;">
+        <a style="display:block; color:white; text-align:center; padding:15px 25px; text-decoration:none;" href="./shopping_cart.php"></a>
+     </li>	
     </ul>
   </div>
 </nav>
