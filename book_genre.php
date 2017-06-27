@@ -32,6 +32,26 @@
 
   <div class="tab-content">
   	<!-- Display of All Books Tab -->
+  	<br>
+
+  	<div class="btn-group" role="group" aria-label="...">
+	  	<button type="button" class="btn btn-default" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+		</button>
+	</div>
+
+
+
+
     <div id="home" class="tab-pane fade in active">
       <h3>All Genres</h3>
       <?php
