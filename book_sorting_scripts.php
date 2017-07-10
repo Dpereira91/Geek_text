@@ -1,7 +1,7 @@
 <script>
 
 //Alphabaetical Sorting
-var getParentId = function(){
+var sortByAlph = function(){
   //get the corrent working tab
   var tabId = "#" + $(this).parent().parent().prop("id");
 	//console.log(tabId);
@@ -14,12 +14,19 @@ var getParentId = function(){
   
   //sorting
   bookArray.sort( function (a, b){
-    var an = a.getElementsByTagName("figcaption")[0].textContent;
-    //console.log(an);
-    var bn = b.getElementsByTagName("figcaption")[0].textContent;
+
+    if (className == "asc-newest" || className == "desc-oldest"){
+      var an = a.getElementsByTagName("input")[0].value;
+      var bn = b.getElementsByTagName("input")[0].value;
+    }
+
+    else if (className == "ascAZ" || className == "descZA"){
+      var an = a.getElementsByTagName("figcaption")[0].textContent;
+      var bn = b.getElementsByTagName("figcaption")[0].textContent;
+    }
     
     //ascending order
-    if (className == "ascAZ"){
+    if (className == "ascAZ" || className == "asc-newest"){
       if (an > bn){
        return 1;
       } 
@@ -30,7 +37,7 @@ var getParentId = function(){
       //console.log(an);
     }
     //descending order
-    else if (className == "descZA"){
+    else if (className == "descZA" || className == "desc-oldest"){
       if (an > bn){
        return -1;
       } 
@@ -47,8 +54,11 @@ var getParentId = function(){
   bookArray.detach().appendTo(parentContainer);
 }
 
-$(".ascAZ").click(getParentId);
-$(".descZA").click(getParentId);
+
+$(".ascAZ").click(sortByAlph);
+$(".descZA").click(sortByAlph);
+$(".asc-newest").click(sortByAlph);
+$(".desc-oldest").click(sortByAlph);
 
 
 </script>
