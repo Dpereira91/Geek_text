@@ -1,6 +1,7 @@
 
 <?php
 echo'<a class="ai" href=""><figure><img class="imgi" src="default_book.png" alt=""><figcaption>' . $row["title"] . '</figcaption><figcaption>';
+// echo'<input type="hidden" value="<?php echo (htmlspecialchars( $row['published_date']))>';
 if ( $row['rating'] <= '1' ) {
 	echo'<img src="ratings/1.png" style="width:100px; height:20px;">';
 }

@@ -6,10 +6,11 @@
 </head>
 <body>
 
+
 <?php
+	// DB connection?
 	include("header.php");
 	$link = mysqli_connect("localhost", "root", "", "geek_text");
-
 
 	// Get the list of all genres in DB
 	$genres = "SELECT distinct genre FROM books";
@@ -17,35 +18,39 @@
 ?>
 
 
+<!-- div for the genres navigation bar? -->
 
+<!--  ********** Heading section*********** -->
 <div class="container">
   <h2>Books by Genre</h2>
   <p>Select tab to display genre</p>
-
-<!-- Create Dynamic tabs heading using all available genres from db -->
   <ul class="nav nav-tabs">
+  	<!-- Create main tab heading for all books in all genres -->
     <li class="active"><a data-toggle="tab" href="#home">All Genres</a></li>
+    <!-- Create dynamic tabs heading using all available genres from db --> 
     <?php while( $genresRow=mysqli_fetch_array($genresList)){
-
     	echo '<li><a data-toggle="tab" href="#menu' .str_replace(' ', '', $genresRow['genre']). '">' . $genresRow['genre']. '</a></li>';
     }?>
   </ul>
 
-  <div class="tab-content">
+
+  <!--  ********** Data section*********** -->
+ <div class="tab-content">
   	<!-- Display of All Books Tab -->
   	<br>
-
-
-
     <div id="home" class="tab-pane fade in active">
-      <h3>All Genres</h3>
-      <?php
+
+	    <!-- buttons used for sorting	 -->
+	    <?php include("book_sorting_buttons.php"); ?>
+
+        <h3>All Genres</h3>
+        <?php
 		$sql = "SELECT * FROM books";
 		$bookList = mysqli_query($link, $sql);
 
-
 		echo'<div style="display:flex; flex-wrap: wrap;">';
 		while ($row=mysqli_fetch_array($bookList)) {
+			// display books
 			include("display_book_helper.php");
 		}
 		?>
@@ -61,36 +66,24 @@
 		$current = $genresRow['genre'];
 		echo '<div id="menu'. str_replace(' ', '', $genresRow['genre']) . '"' . 'class="tab-pane fade">';
 
-		$buttonID = "buttonAZ";
+		// $buttonID = "buttonAZ";
 
-		echo '<div class="btn-group" role="group" aria-label="...">
-	  	<button type="button" class="btn btn-default ascAZ" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default descZA" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default asc-newest" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default desc-oldest" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
-		</button>
-	</div>';
+	    // buttons used for sorting
+		include("book_sorting_buttons.php");
 
-	  	echo '<h3>' . $genresRow['genre']. '</h3>';
+	 	echo '<h3>' . $genresRow['genre']. '</h3>';
 
-	// Echo all books for the specified genre
+		// Echo all books for the specified genre
 	    $sql = "SELECT * FROM books WHERE genre = '$current'";
 	    $bookList = mysqli_query($link, $sql);
 		echo'<div style="display:flex; flex-wrap: wrap;">';
 		while ($row=mysqli_fetch_array($bookList)) {
 			include("display_book_helper.php");	
 		}
-	echo '</div>';
-  	echo '</div>';
-      }
-      ?>
+		echo '</div>';
+	  	echo '</div>';
+    }
+    ?>
 </div>
 
 
@@ -98,43 +91,8 @@
 	<?php include("style.css"); ?>
 </style>
 
-<script>
-
-//sorting
-var getParentId = function(){
-  var tabId = "#" + $(this).parent().parent().prop("id");
-	console.log(tabId);
-  
-  var parentContainer = $(tabId);	
-  var bookArray = $(tabId).find('.ai');  
-  
-  bookArray.sort( function (a, b){
-    var an = a.getElementsByTagName("figcaption")[0].textContent;
-    console.log(an);
-    var bn = b.getElementsByTagName("figcaption")[0].textContent;
-    //var bn = b.find("figcaption").text(); 
-    
-    if (an > bn){
-     return 1;
-    }
-     
-    if (an < bn){
-     return -1;
-    }
-    
-    return 0;   
-    console.log(an);
-    
-  });
-  
-  bookArray.detach().appendTo(parentContainer);
-  
-  //console.log(bookArray.eq(0).find("figcaption").text());
-  
-}
-
-$(".ascAZ").click(getParentId);
-</script>
+<!-- scripts used by the sorting buttons -->
+ <?php include"book_sorting_scripts.php" ?>
 
 </body>
 </html>

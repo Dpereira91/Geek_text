@@ -30,6 +30,8 @@
   <div class="tab-content">
   	<!-- Display of All Books Tab -->
     <div id="home" class="tab-pane fade in active">
+    <br>
+      <?php include("book_sorting_buttons.php"); ?>
       <h3>All Ratings</h3>
       <?php
 		$sql = "SELECT * FROM books";
@@ -46,9 +48,12 @@
 
 	<!-- Display of books Specific by rating range -->
     <?php
+    	echo'<br>';
     	for ($i=1; $i <=5 ; $i++) { 
 	    	echo '<div id="rating'. $i . '"' . 'class="tab-pane fade">';	
+	    	 include("book_sorting_buttons.php");
 	    	echo '<h3> Rating ' . $i .'</h3>';
+
 
 			// Echo all books for the specified rating
 		    $sql = "SELECT * FROM books WHERE (rating <= $i AND rating > $i-1)";
@@ -69,6 +74,8 @@
 <style>
 	<?php include("style.css"); ?>
 </style>
+
+ <?php include"book_sorting_scripts.php" ?>
 
 </body>
 </html>
