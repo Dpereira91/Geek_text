@@ -26,29 +26,14 @@
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">All Genres</a></li>
     <?php while( $genresRow=mysqli_fetch_array($genresList)){
-    	echo '<li><a data-toggle="tab" href="#menu' .$genresRow['genre']. '">' . $genresRow['genre']. '</a></li>';
+
+    	echo '<li><a data-toggle="tab" href="#menu' .str_replace(' ', '', $genresRow['genre']). '">' . $genresRow['genre']. '</a></li>';
     }?>
   </ul>
 
   <div class="tab-content">
   	<!-- Display of All Books Tab -->
   	<br>
-
-  	<div class="btn-group" role="group" aria-label="...">
-	  	<button type="button" class="btn btn-default" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
-		</button>
-		<button type="button" class="btn btn-default" aria-label="Left Align">
-	  		<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
-		</button>
-	</div>
-
 
 
 
@@ -74,7 +59,25 @@
 	// Echo Genre selected
 	while( $genresRow=mysqli_fetch_array($genresList)) {
 		$current = $genresRow['genre'];
-		echo '<div id="menu'. $genresRow['genre'] . '"' . 'class="tab-pane fade">';
+		echo '<div id="menu'. str_replace(' ', '', $genresRow['genre']) . '"' . 'class="tab-pane fade">';
+
+		$buttonID = "buttonAZ";
+
+		echo '<div class="btn-group" role="group" aria-label="...">
+	  	<button type="button" class="btn btn-default ascAZ" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default descZA" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default asc-newest" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default desc-oldest" aria-label="Left Align">
+	  		<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+		</button>
+	</div>';
+
 	  	echo '<h3>' . $genresRow['genre']. '</h3>';
 
 	// Echo all books for the specified genre
@@ -94,6 +97,44 @@
 <style>
 	<?php include("style.css"); ?>
 </style>
+
+<script>
+
+//sorting
+var getParentId = function(){
+  var tabId = "#" + $(this).parent().parent().prop("id");
+	console.log(tabId);
+  
+  var parentContainer = $(tabId);	
+  var bookArray = $(tabId).find('.ai');  
+  
+  bookArray.sort( function (a, b){
+    var an = a.getElementsByTagName("figcaption")[0].textContent;
+    console.log(an);
+    var bn = b.getElementsByTagName("figcaption")[0].textContent;
+    //var bn = b.find("figcaption").text(); 
+    
+    if (an > bn){
+     return 1;
+    }
+     
+    if (an < bn){
+     return -1;
+    }
+    
+    return 0;   
+    console.log(an);
+    
+  });
+  
+  bookArray.detach().appendTo(parentContainer);
+  
+  //console.log(bookArray.eq(0).find("figcaption").text());
+  
+}
+
+$(".ascAZ").click(getParentId);
+</script>
 
 </body>
 </html>
