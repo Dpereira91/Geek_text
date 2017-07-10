@@ -177,6 +177,8 @@
   </div>
 </div>
 
+<br /><br /><br /><br /><br /><br />
+<div id="deleteBtn"><input type="submit" name="action" value="Deactivate Account" class="btn btn-danger"></div>
 
 <script>
 // <!-- JQuery function to unhide form to add a new credit card on button click-->
@@ -207,8 +209,6 @@
 	});
 
 
-
-
 	//function to select preferred address through a radio button
 	var radioButton = $("input.preferred-address");
 	radioButton.click(function(){
@@ -224,6 +224,17 @@
 	      thisButton.prop("checked", true);
 	    }
 
+	});
+
+	function runDeleteAction() {
+		window.location = './delete_user.php';
+	}
+
+	var deleteButton = $("#deleteBtn");
+	deleteButton.click(function(){
+		if (confirm('Are you sure you want to delete your account? This will remove all your information from the website. This action cannot be undone.')) { 
+			runDeleteAction();
+		}
 	});
 
 
