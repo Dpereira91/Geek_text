@@ -13,10 +13,12 @@ $id = $_SESSION['username'];
 $sql = "SELECT * FROM user WHERE id='$id'";
 $result=mysqli_query($link, $sql);
 
+$deleteAddr = "DELETE FROM shipping WHERE id='$id'";
+$resultAddr=mysqli_query($link, $deleteAddr);
 $deleteSql = "DELETE FROM user WHERE id='$id'";
 $result2=mysqli_query($link, $deleteSql);
 
-if(mysqli_query($link, $deleteSql)){
+if(mysqli_query($link, $deleteAddr) && mysqli_query($link, $deleteSql)){
 	echo "Account deleted successfully.";
 	session_destroy();
 	echo "<script type='text/javascript'>
