@@ -34,11 +34,13 @@
     <?php
 				session_start();
 				if(!isset($_SESSION['username'])){
-					echo'<li><a href="./create_account.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					echo'<li><a href="./shopping_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+						 <li><a href="./create_account.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 						 <li><a href="./sign_in.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
 				}	
 				else{
-					echo'<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./account.php">'.$_SESSION['username']. '<span class="caret"></span></a>
+					echo'<li><a href="./shopping_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./account.php">'.$_SESSION['username']. '<span class="caret"></span></a>
 	        				<ul class="dropdown-menu">
 		          				<li><a href="./account.php">Account</a></li>
 		         			    <li><a href="logout.php">Sign Out</a></li>
