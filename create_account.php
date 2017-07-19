@@ -27,9 +27,9 @@
 </form>
 
 
-By signing in or creating an account you are agreeing to our 
+<p style="margin-left:20;">By signing in or creating an account you are agreeing to our 
 <a href="./terms.php">Terms of Use</a> and 
-our <a href="./privacy.php">Privacy Policy</a>.
+our <a href="./privacy.php">Privacy Policy</a>.</p>
 
 
 </body>
