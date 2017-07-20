@@ -13,7 +13,7 @@
 	}
 	$title = mysqli_real_escape_string($link, $_REQUEST['title']);
 
-	$sql = "SELECT * FROM books WHERE title='$title'";
+	$sql = "SELECT * FROM books WHERE title LIKE '%$title%'";
 	$result=mysqli_query($link, $sql);
 	$count=mysqli_num_rows($result);
 	
@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		$row=mysqli_fetch_array($result);
+		while ($row=mysqli_fetch_array($result)) {
 		echo'<figure><img class="imgi" src="default_book.png" alt=""><figcaption>' . $row["title"] . '</figcaption>
 		<figcaption>$' . $row["price"] . '</figcaption><figcaption>';
 		if ( $row['rating'] <= '1' ) {
@@ -54,6 +54,7 @@
 			echo'<img src="ratings/5.png" style="width:100px; height:20px;">';
 		}
 		echo'</figcaption></figure>';
+		}
 	}
 	mysqli_close($link);
 
