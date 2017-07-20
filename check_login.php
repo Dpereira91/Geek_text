@@ -38,7 +38,7 @@ if($count > 0)
    // Register $username, $password and redirect to file "index.php"
    $_SESSION['username'] = $id;
    $_SESSION['password'] = $pass;
-   header("location:home.php");
+   header("location:index.php");
 }
 else 
 {
