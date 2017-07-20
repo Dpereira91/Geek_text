@@ -15,9 +15,11 @@
     <input  style="margin-left: 20;" type="submit" value="Sign in">
 </form>
 
-<br></br>
+<br>
 
-	Don't have an account?<a style="margin-left: 20;" href="./create_account.php">Sign Up</a>
+<p style="margin-left:20;">Don't have an account?<a style="margin-left: 20;" href="./create_account.php">Sign Up</a>
+
+<?php include("footer.php");?>
 
 </body>
 </html>

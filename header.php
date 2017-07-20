@@ -11,10 +11,10 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" style="color:chartreuse; font-size: 24;" href="./home.php">GeekText</a>
+      <a class="navbar-brand" style="color:chartreuse; font-size: 24;" href="./">GeekText</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Books<span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse Books<span class="caret"></span></a>
         <ul class="dropdown-menu">
 		  <li><a href="./books.php">All</a></li>
           <li><a href="book_genre.php">Genre</a></li>
@@ -23,12 +23,14 @@
         </ul>
       </li>
     </ul>
-    <form class="navbar-form navbar-left">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Search</button>
-    </form>
+	
+    <form class="navbar-form navbar-left" action="book_search.php" method="post">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search by Book Title" name="title">
+		</div>
+		<button type="submit" class="btn btn-default">Search</button>
+	</form>
+	
     <ul class="nav navbar-nav navbar-right">
 
     <?php

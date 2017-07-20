@@ -23,7 +23,7 @@ if(mysqli_query($link, $deleteAddr) && mysqli_query($link, $deleteSql)){
 	session_destroy();
 	echo "<script type='text/javascript'>
 	alert('Your user account was deleted successfully. Redirecting to home page.'); 
-	window.location = './home.php';
+	window.location = './index.php';
 	</script>";
 }
 else{
