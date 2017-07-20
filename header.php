@@ -23,12 +23,14 @@
         </ul>
       </li>
     </ul>
-    <form class="navbar-form navbar-left">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search by Book Title">
-      </div>
-      <button type="submit" class="btn btn-default">Search</button>
-    </form>
+	
+    <form class="navbar-form navbar-left" action="book_search.php" method="post">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search by Book Title" name="title">
+		</div>
+		<button type="submit" class="btn btn-default">Search</button>
+	</form>
+	
     <ul class="nav navbar-nav navbar-right">
 
     <?php
