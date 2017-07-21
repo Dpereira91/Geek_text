@@ -12,17 +12,15 @@
 <p style="text-align: center;"><b>Geek Text</b></p>
 <br>
 
-<p style="text-align:center; font-family:courier-new; font-size:4em;">THE 10 BEST SUMMER BOOKS</p>
-<p style="text-align: center;"><b>By Book World Reviewers</b><br>May 26, 2017</p>
+<p style="text-align:center; font-family:courier-new; font-size:4em;">TECH VALLEY TIMES BEST SELLERS</p>
+<p style="text-align: center;"><b>By Tech Valley Times</b><br>JULY 26, 2017</p>
 <p style="text-align: center; padding-left:20%; padding-right:15%; font-size:1.2em;">
-	It's that time of year again: the weather is getting warmer, the days are getting 
-	longer, and there's nothing better than a nice read on the beach. Even if you 
-	haven't picked up a book since Labor Day, fear not; we've gone through all the 
-	best titles for the next few months and come up with 10 must-read page-turners 
-	that will keep you entertained all Summer long. Happy reading!
+	It's that time of year again: the weather is getting chillier, the days are getting 
+	shorter, and there's nothing better than snuggling up and getting a good read. Even 
+	if you haven't picked up a book since The Fourth of July, fear not; we've gone 
+	through all the best titles and come up with a few best sellers	that will keep you 
+	entertained. Happy reading!
 </p>
-
-<hr style="border-width:2px;">
 
 <?php
 	$link = mysqli_connect("localhost", "root", "", "geek_text");

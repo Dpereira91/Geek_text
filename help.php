@@ -9,12 +9,14 @@
 <?php include("header.php");?>
 
 <h2 style="text-align:center;">What can we help you with?</h2>
-<br>
+<br />
 <p style="text-align:center;">
 	<input type="text" name="search" style="width:50%;" placeholder="Search..">
 	<button type="submit" class="btn btn-default">Search</button>
 </p>
 
+
+<br />
 <?php include("footer.php");?>
 
 </body>
