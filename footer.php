@@ -4,8 +4,10 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<br />
-<hr>
+<br>
+<br>
+<br>
+<hr style="border-width:2px;">
 <p class= "footerbottom">
 	© 2017 The Last Borders Company | 
 	<a href="./contact.php">Contact Us</a> | 
