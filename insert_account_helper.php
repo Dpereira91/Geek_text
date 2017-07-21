@@ -36,7 +36,7 @@ function validateInput($key, $value){
 		else{
 			return true;
 		}
-	}elseif ($key == "street1" || $key == "street2" || $key == "state") {
+	}elseif ($key == "street1" || $key == "state") {
 		return true;
 	}elseif ($key == "zip") {
 		if ((strlen($value) != 5) || (!ctype_digit($value))){

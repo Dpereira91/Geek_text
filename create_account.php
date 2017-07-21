@@ -1,8 +1,8 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Create Account</title>
-
+	<meta charset="UTF-8">
+	<title>Create Account</title>
+	<link rel="stylesheet" type="text/css" href="style.css"> </link>
 </head>
 <body>
 
@@ -10,16 +10,16 @@
 
 <h2 style="margin-left: 20;">Account Information</h2>
 
-<form name="myForm" action="insert_account.php" method="post">
-	<p style="margin-left: 20;"><input type="text" name="id" id="id" placeholder="User ID" required></p>
-	<p style="margin-left: 20;"><input type="password" name="pw" id="pw" placeholder="Enter Password" required></p>
-	<p style="margin-left: 20;"><input type="text" name="name" id="name" placeholder="Name" required></p>
-	<p style="margin-left: 20;"><input type="text" name="nickname" id="nickname" placeholder="Nickname" required></p>
-	<p style="margin-left: 20;"><input type="text" name="email" id="email"placeholder="Email" required></p>
-	<p style="margin-left: 20;"><input type="text" name="street1" id="street1" placeholder="Street 1" required></p>
-	<p style="margin-left: 20;"><input type="text" name="street2" id="street2" placeholder="Street 2" required></p>
-	<p style="margin-left: 20;"><input type="text" name="city" id="city" placeholder="City" required></p>
-	<!-- <p style="margin-left: 20;"><input type="text" name="state" placeholder="State"></p> -->
+<form name="myForm" id="myForm" action="insert_account.php" method="post">
+	<p style="margin-left: 20;"><input type="text" name="id" id="id" placeholder="User ID" required>*<spam class="input-error" id="id-error"></spam></p>
+	<p style="margin-left: 20;"><input type="password" name="pw" id="pw" placeholder="Enter Password" required>*<spam class="input-error" id="pw-error"></spam></p>
+	<p style="margin-left: 20;"><input type="password" name="confirm-pw" id="confirm-pw" placeholder="Confirm Password" required>*<spam class="input-error" id="confirm-pw-error"></spam></p>
+	<p style="margin-left: 20;"><input type="text" name="name" id="name" placeholder="Name" required>*<spam class="input-error" id="name-error"></spam></p>
+	<p style="margin-left: 20;"><input type="text" name="nickname" id="nickname" placeholder="Nickname" required>*<spam class="input-error" id="nickname-error"></spam></p>
+	<p style="margin-left: 20;"><input type="text" name="email" id="email"placeholder="Email" required>*<spam class="input-error" id="email-error"></spam></p>
+	<p style="margin-left: 20;"><input type="text" name="street1" id="street1" placeholder="Street 1" required>*<spam class="input-error" id="street1-error"></spam></p>
+	<p style="margin-left: 20;"><input type="text" name="street2" id="street2" placeholder="Street 2" required><spam class="input-error" id="street2-error"></spam></p>
+	<p style="margin-left: 20;"><input type="text" name="city" id="city" placeholder="City" required>*<spam class="input-error" id="city-error"></spam></p>
 	<p style="margin-left: 20;"><label>State</label>
 	<select name="state" id="state">
 		<option value="AL">AL</option>
@@ -75,7 +75,7 @@
 		<option value="WY">WY</option>
 	</select>
 
-	<p style="margin-left: 20;"><input type="text" name="zip" placeholder="Zip Code" required></p>	
+	<p style="margin-left: 20;"><input type="text" name="zip" id="zip" placeholder="Zip Code" required>*<spam class="input-error" id="zip-error"></spam></p>	
 	<p><input style="margin-left: 20;" type="submit" class="btn btn-success" id="create-account" value="Create Account"></p>
 
 </form>
@@ -85,6 +85,312 @@
 <a href="./terms.php">Terms of Use</a> and 
 our <a href="./privacy.php">Privacy Policy</a>.</p>
 
+
+<script>
+
+ //***************************************************************
+ //These scripts checks input everytime the user clicks the input box
+  //***************************************************************
+	var canSubmit = true;
+	var id = $("#id");
+	var pw = $("#pw");
+	var confirmPw = $("#confirm-pw");
+	var nameUser = $("#name");
+	var nickname = $("#nickname");
+	var email = $("#email");
+	var street1 = $("#street1");
+	var city = $("#city");
+	var zipCode = $("#zip");
+	var upperCase= new RegExp('[A-Z]');
+	var numbers = new RegExp('[0-9]');
+
+	
+  	//ID validation
+  	$("#id").change(function(){
+
+  		var name= $("#id").val();
+
+  		if (id.val().length == 0){
+  			$("#id-error").text(" Required field");
+  			canSubmit = false;
+  		} else if(alphanumeric(id.val()) == false){
+  			$("#id-error").text(" User ID has to be alphanumeric");
+	    	canSubmit = false;
+		} else if(name){
+		    $.ajax({
+		      	type: 'post',
+		      	url: 'checkdata.php',
+		      	data: {id:name,},
+		      	success: function (response) {
+		       		 $( '#id' ).html(response);
+		        	if(response !="OK"){
+		        		$("#id-error").text("User ID already in use");
+		        		canSubmit = false;	
+		       		} else {
+						$("#id-error").text("not taken");
+	  					canSubmit = true;
+		      		}
+		      	}
+	    	});
+	 	} 
+
+	 // 	else {
+		// $("#id-error").text("");
+	 //  		canSubmit = true;
+	 // 	}
+
+		// else{
+	 //  		$("#id-error").text("");
+	 //  		canSubmit = true;
+		// }
+  	});
+
+
+	// //ajax request to verify user ID
+	// $("#id").change(function (){
+	//   	var name= $("#id").val();
+		
+	//  	if(name){
+	// 	    $.ajax({
+	// 	      	type: 'post',
+	// 	      	url: 'checkdata.php',
+	// 	      	data: {id:name,},
+	// 	      	success: function (response) {
+	// 	       		 $( '#id' ).html(response);
+	// 	        	if(response=="OK"){
+	// 	         		$("#id-error").text("");	
+	// 	         		canSubmit = true;	
+	// 	        	}else {
+	// 	        		$("#id-error").text("User ID already in use");
+	// 	        		canSubmit = false;	
+	// 	       		} 
+	// 	      	}
+	//     	});
+	//  	} else {
+	//   		$( '#id' ).html("");
+	//   		return false;
+	//  	}
+	// });
+
+
+
+  	//event constantly checks the pw field and verifies input
+	$("#pw").on("click keydown keyup change", function(){
+		if (pw.val().length < 8){
+  			$("#pw-error").text(" Min lenght 8 characters. \n Password must contain at least one uppercase and one digit");
+   			canSubmit = false;
+   			//canSubmitArray.pw = false;
+  		} else if (!(pw.val().match(upperCase)) || !(pw.val().match(numbers))) {
+  			$("#pw-error").text(" Password must contain at least one uppercase and one digit");
+  			canSubmit = false;
+  			//canSubmitArray.pw = false;
+ 		} else{
+	  		$("#pw-error").text("");
+	  		 canSubmit = true;
+	  		//canSubmitArray.pw = true;
+		}
+
+	});
+
+
+
+	//name validation
+  	$("#confirm-pw").change(function(){
+  		if (confirmPw.val().length == 0){
+  			$("#confirm-pw-error").text(" Required field");
+  			canSubmit = false;
+  		} else {
+  			$("#confirm-pw-error").text("");
+	  		canSubmit = true;
+		}
+  	});		
+
+  	//name validation
+  	$("#name").change(function(){
+  		if (nameUser.val().length == 0){
+  			$("#name-error").text(" Required field");
+  			canSubmit = false;
+  		} else if (alpha(nameUser.val()) == false){
+  			$("#name-error").text(" Name must be composed only of letters");
+   			 canSubmit = false;
+		}else{
+	  		$("#name-error").text("");
+	  		canSubmit = true;
+		}
+  	});
+ 
+ 	//nickname validation
+  	$("#nickname").change(function(){
+  		if (nickname.val().length == 0){
+  			$("#nickname-error").text(" Required field");
+  			canSubmit = false;
+  		} else if(alphanumeric(nickname.val()) == false){
+  			$("#nickname-error").text(" Nickname has to be alphanumeric");
+	    	canSubmit = false;
+		} else{
+	  		$("#nickname-error").text("");
+	  		canSubmit = true;
+		}
+  	}); 
+
+ 	//email validation
+  	$("#email").change(function(){
+  		if (email.val().length == 0){
+  			$("#email-error").text(" Required field");
+  			canSubmit = false;
+  		} else if(isEmail(email.val()) == false){
+  			$("#email-error").text(" Invalid Email");
+	    	canSubmit = false;
+		} else{
+	  		$("#email-error").text("");
+	  		canSubmit = true;
+		}
+  	}); 
+
+  	//address validation
+	$("#street1").change(function(){
+  		if (street1.val().length == 0){
+  			$("#street1-error").text(" Required field");
+  			canSubmit = false;
+  		}
+  		else{
+  			$("#street1-error").text("");
+  			canSubmit = true;
+
+  		} 
+  	});
+
+
+  	//city validation
+  	$("#city").change(function(){
+  		if (city.val().length == 0){
+  			$("#city-error").text(" Required field");
+  			canSubmit = false;
+  		} else if (alpha(city.val()) == false){
+  			$("#city-error").text(" City must be composed only of leters");
+   			 canSubmit = false;
+		}else{
+	  		$("#city-error").text("");
+	  		canSubmit = true;
+		}
+  	});
+
+  	 //zip code validation
+  	$("#zip").change(function(){
+  		if (zipCode.val().length == 0){
+  			$("#zip-error").text(" Required field");
+  			canSubmit = false;
+  		} else if (!(zipCode.val().match(numbers))){
+  			$("#zip-error").text(" Zip Code must be composed only of number");
+   			 canSubmit = false;
+		} else if (zipCode.val().length != 5){
+  			$("#zip-error").text(" Invalid zip code");
+		}else{
+	  		$("#zip-error").text("");
+	  		canSubmit = true;
+		}
+  	});
+ 
+
+	//action to be performed on button click
+	$("#create-account").click(function(event){
+ 		 event.preventDefault();
+  
+  		// Blank ID Validation
+   		if (id.val().length == 0){
+  			$("#id-error").text(" Required field");
+  			canSubmit = false;
+		}
+  
+		//PW Validation
+		if(pw.val().length < 8){
+		  	$("#pw-error").text(" Required field");
+		    canSubmit = false;
+		} 
+
+		if(confirmPw.val().length == 0){
+			$("#confirm-pw-error").text(" Required field");
+			canSubmit = false;
+		}
+
+		if(pw.val() != confirmPw.val()){
+			$("#confirm-pw-error").text(" Password does not match");
+			canSubmit = false;
+		}
+  
+	   	//Name Validation
+	  	if(nameUser.val().length == 0){
+	  		$("#name-error").text(" Required field");
+	  		canSubmit = false;
+  		}
+
+  		//nickname
+   		if (nickname.val().length == 0){
+  			$("#nickname-error").text(" Required field");
+  			canSubmit = false;
+		}  
+
+		//emai validation
+   		if (email.val().length == 0){
+  			$("#email-error").text(" Required field");
+  			canSubmit = false;
+		} 
+
+		//address validation
+  		if (street1.val().length == 0){
+  			$("#street1-error").text(" Required field");
+  			canSubmit = false;
+  		} 
+
+  		//city validation
+   		if (city.val().length == 0){
+  			$("#city-error").text(" Required field");
+  			canSubmit = false;
+		}
+
+		//zip code validation
+   		if (zipCode.val().length == 0){
+  			$("#zip-error").text(" Required field");
+  			canSubmit = false;
+		}
+
+
+		//if all feilds are completed correctly, then submit
+  		if (canSubmit == true){
+   			$("#myForm").submit();
+   			alert("Account created sucessfully. Please log in!");
+ 		 }
+	});
+
+	function alphanumeric(inputtxt){  
+	 var letterNumber = /^[0-9a-zA-Z]+$/;  
+	 if(inputtxt.match(letterNumber)){  
+	   return true;  
+	  }else{    
+	   return false;   
+	  }  
+	}
+
+	function alpha(inputtxt){  
+	 	var letterNumber = /^[a-zA-Z() ]+$/;  
+	 	if(inputtxt.match(letterNumber)){  
+	  		return true;  
+	 	}else{    
+	   		return false;   
+	  	}
+	  	canSubmit = true;
+	}
+
+	function isEmail(email) {
+  		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  		if (email.match(regex)){
+  			return true;
+  		} else {
+  			return false;
+  		}
+	}
+
+</script>
 
 </body>
 </html>

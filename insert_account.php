@@ -36,7 +36,9 @@ $invalidInput = false;
 //input validation
 
 foreach ($_REQUEST as $key => $value) {
-	if (strlen($value) == 0){
+	if ($key == "street2" || $key == "confirm-pw"){
+		;
+	} else if (strlen($value) == 0){
 		echo "$key is empty<br>";
 		$invalidInput = true;
 	} elseif (!validateInput($key, $value)){
@@ -65,7 +67,8 @@ else{
 			short_zip_code) VALUES ('$id', '$pass', '$name', '$nickname', '$email', '$street1', '$street2', '$city',
 			'$state', '$zip', 'null')";
 		if(mysqli_query($link, $sql)){
-			echo "Records added successfully.";
+			header("location:index.php");
+			//echo "Records added successfully.";
 		}
 		else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
@@ -73,7 +76,7 @@ else{
 		
 		$sql = "INSERT INTO shipping VALUES ('$id', NULL, '1', '$street1', '$street2', '$city', '$state', '$zip', 'NULL')";
 		if(mysqli_query($link, $sql)){
-			echo "Records added successfully.";
+			//echo "Records added successfully.";
 		}
 		else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
