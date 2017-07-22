@@ -12,7 +12,7 @@
 	$result=mysqli_query($link, $sql);
 	echo'<div style="display:flex; flex-wrap: wrap;">';
 	while( $row=mysqli_fetch_array($result) ) {
-		echo'<a class="ai" href=""><figure><img class="imgi" src="default_book.png" alt=""><figcaption>' . $row["title"] . '</figcaption>
+		echo'<a class="ai" href=""><figure><img class="imgi" src="images/'. $row["id"] . '.png" alt=""><figcaption>' . $row["title"] . '</figcaption>
 		<figcaption>$' . $row["price"] . '</figcaption><figcaption>';
 		if ( $row['rating'] <= '1' ) {
 			echo'<img src="ratings/1.png" style="width:100px; height:20px;">';
