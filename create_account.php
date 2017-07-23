@@ -91,7 +91,9 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
  //***************************************************************
  //These scripts checks input everytime the user clicks the input box
   //***************************************************************
-	var canSubmit = true;
+
+	var canSubmitArray = {id:true, pw:true, confirmPw:true , nameUser:true, email:true,
+						street1:true, city:true, zipCode:true};
 	var id = $("#id");
 	var pw = $("#pw");
 	var confirmPw = $("#confirm-pw");
@@ -106,17 +108,19 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 
 	
   	//ID validation
-  	$("#id").change(function(){
+  	$("#id").on("click keydown keyup change", function(){
 
   		var name= $("#id").val();
 
+  		//id validation
   		if (id.val().length == 0){
   			$("#id-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.id = false;
   		} else if(alphanumeric(id.val()) == false){
   			$("#id-error").text(" User ID has to be alphanumeric");
-	    	canSubmit = false;
-		} else if(name){
+	    	canSubmitArray.id = false;
+		} 
+		else if(name){
 		    $.ajax({
 		      	type: 'post',
 		      	url: 'checkdata.php',
@@ -125,69 +129,28 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 		       		 $( '#id' ).html(response);
 		        	if(response !="OK"){
 		        		$("#id-error").text("User ID already in use");
-		        		canSubmit = false;	
-		       		} else {
-						$("#id-error").text("not taken");
-	  					canSubmit = true;
+		        		canSubmitArray.id = false;	
+		       		} 
+		       		else {
+						$("#id-error").text("Available");
+	  					canSubmitArray.id = true;
 		      		}
 		      	}
 	    	});
 	 	} 
-
-	 // 	else {
-		// $("#id-error").text("");
-	 //  		canSubmit = true;
-	 // 	}
-
-		// else{
-	 //  		$("#id-error").text("");
-	 //  		canSubmit = true;
-		// }
   	});
-
-
-	// //ajax request to verify user ID
-	// $("#id").change(function (){
-	//   	var name= $("#id").val();
-		
-	//  	if(name){
-	// 	    $.ajax({
-	// 	      	type: 'post',
-	// 	      	url: 'checkdata.php',
-	// 	      	data: {id:name,},
-	// 	      	success: function (response) {
-	// 	       		 $( '#id' ).html(response);
-	// 	        	if(response=="OK"){
-	// 	         		$("#id-error").text("");	
-	// 	         		canSubmit = true;	
-	// 	        	}else {
-	// 	        		$("#id-error").text("User ID already in use");
-	// 	        		canSubmit = false;	
-	// 	       		} 
-	// 	      	}
-	//     	});
-	//  	} else {
-	//   		$( '#id' ).html("");
-	//   		return false;
-	//  	}
-	// });
-
-
 
   	//event constantly checks the pw field and verifies input
 	$("#pw").on("click keydown keyup change", function(){
 		if (pw.val().length < 8){
   			$("#pw-error").text(" Min lenght 8 characters. \n Password must contain at least one uppercase and one digit");
-   			canSubmit = false;
-   			//canSubmitArray.pw = false;
+   			canSubmitArray.pw = false;
   		} else if (!(pw.val().match(upperCase)) || !(pw.val().match(numbers))) {
   			$("#pw-error").text(" Password must contain at least one uppercase and one digit");
-  			canSubmit = false;
-  			//canSubmitArray.pw = false;
+  			canSubmitArray.pw = false;
  		} else{
 	  		$("#pw-error").text("");
-	  		 canSubmit = true;
-	  		//canSubmitArray.pw = true;
+	  		canSubmitArray.pw = true;
 		}
 
 	});
@@ -198,10 +161,10 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	$("#confirm-pw").change(function(){
   		if (confirmPw.val().length == 0){
   			$("#confirm-pw-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.confirmPw = false;
   		} else {
   			$("#confirm-pw-error").text("");
-	  		canSubmit = true;
+	  		canSubmitArray.confirmPw = true;
 		}
   	});		
 
@@ -209,13 +172,13 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	$("#name").change(function(){
   		if (nameUser.val().length == 0){
   			$("#name-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.name = false;
   		} else if (alpha(nameUser.val()) == false){
   			$("#name-error").text(" Name must be composed only of letters");
-   			 canSubmit = false;
+   			 canSubmitArray.name = false;
 		}else{
 	  		$("#name-error").text("");
-	  		canSubmit = true;
+	  		canSubmitArray.name = true;
 		}
   	});
  
@@ -223,13 +186,13 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	$("#nickname").change(function(){
   		if (nickname.val().length == 0){
   			$("#nickname-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.nickname = false;
   		} else if(alphanumeric(nickname.val()) == false){
   			$("#nickname-error").text(" Nickname has to be alphanumeric");
-	    	canSubmit = false;
+	    	canSubmitArray.nickname = false;
 		} else{
 	  		$("#nickname-error").text("");
-	  		canSubmit = true;
+	  		canSubmitArray.nickname = true;
 		}
   	}); 
 
@@ -237,13 +200,13 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	$("#email").change(function(){
   		if (email.val().length == 0){
   			$("#email-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.email = false;
   		} else if(isEmail(email.val()) == false){
   			$("#email-error").text(" Invalid Email");
-	    	canSubmit = false;
+	    	canSubmitArray.email = false;
 		} else{
 	  		$("#email-error").text("");
-	  		canSubmit = true;
+	  		canSubmitArray.email = true;
 		}
   	}); 
 
@@ -251,12 +214,11 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 	$("#street1").change(function(){
   		if (street1.val().length == 0){
   			$("#street1-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.street1 = false;
   		}
   		else{
   			$("#street1-error").text("");
-  			canSubmit = true;
-
+  			canSubmitArray.street1 = true;
   		} 
   	});
 
@@ -265,13 +227,13 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	$("#city").change(function(){
   		if (city.val().length == 0){
   			$("#city-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.city = false;
   		} else if (alpha(city.val()) == false){
   			$("#city-error").text(" City must be composed only of leters");
-   			 canSubmit = false;
+   			 canSubmitArray.city = false;
 		}else{
 	  		$("#city-error").text("");
-	  		canSubmit = true;
+	  		canSubmitArray.city = true;
 		}
   	});
 
@@ -279,15 +241,16 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	$("#zip").change(function(){
   		if (zipCode.val().length == 0){
   			$("#zip-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmitArray.zip = false;
   		} else if (!(zipCode.val().match(numbers))){
   			$("#zip-error").text(" Zip Code must be composed only of number");
-   			 canSubmit = false;
+   			 canSubmitArray.zip = false;
 		} else if (zipCode.val().length != 5){
   			$("#zip-error").text(" Invalid zip code");
+  			canSubmitArray.zip = false;
 		}else{
 	  		$("#zip-error").text("");
-	  		canSubmit = true;
+	  		canSubmitArray.zip = true;
 		}
   	});
  
@@ -295,6 +258,8 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 	//action to be performed on button click
 	$("#create-account").click(function(event){
  		 event.preventDefault();
+
+ 		 canSubmit = true;
   
   		// Blank ID Validation
    		if (id.val().length == 0){
@@ -303,7 +268,7 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 		}
   
 		//PW Validation
-		if(pw.val().length < 8){
+		if(pw.val().length == 0){
 		  	$("#pw-error").text(" Required field");
 		    canSubmit = false;
 		} 
@@ -311,9 +276,7 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 		if(confirmPw.val().length == 0){
 			$("#confirm-pw-error").text(" Required field");
 			canSubmit = false;
-		}
-
-		if(pw.val() != confirmPw.val()){
+		} else if(pw.val() != confirmPw.val()){
 			$("#confirm-pw-error").text(" Password does not match");
 			canSubmit = false;
 		}
@@ -327,7 +290,7 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   		//nickname
    		if (nickname.val().length == 0){
   			$("#nickname-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmit= false;
 		}  
 
 		//emai validation
@@ -345,7 +308,7 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   		//city validation
    		if (city.val().length == 0){
   			$("#city-error").text(" Required field");
-  			canSubmit = false;
+  			canSubmit= false;
 		}
 
 		//zip code validation
@@ -354,11 +317,18 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   			canSubmit = false;
 		}
 
-
 		//if all feilds are completed correctly, then submit
-  		if (canSubmit == true){
+
+		var canSubFinal = true;
+		for (var i in canSubmitArray){
+			if(canSubmitArray[i] == false){
+				canSubFinal = false;
+			}
+		}
+
+  		if(canSubFinal == true && canSubmit == true){
    			$("#myForm").submit();
-   			alert("Account created sucessfully. Please log in!");
+   			alert("Account created sucessfully. Welcome!");
  		 }
 	});
 

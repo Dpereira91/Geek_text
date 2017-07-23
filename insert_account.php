@@ -67,6 +67,8 @@ else{
 			short_zip_code) VALUES ('$id', '$pass', '$name', '$nickname', '$email', '$street1', '$street2', '$city',
 			'$state', '$zip', 'null')";
 		if(mysqli_query($link, $sql)){
+			$_SESSION['username'] = $id;
+ 			$_SESSION['password'] = $pass;
 			header("location:index.php");
 			//echo "Records added successfully.";
 		}
