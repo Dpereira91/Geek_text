@@ -1,14 +1,12 @@
 <script>
 
 //Alphabaetical Sorting
-var sortByAlph = function(){
+var sortFunction = function(){
   //get the corrent working tab
   var tabId = "#" + $(this).parent().parent().prop("id");
-	//console.log(tabId);
 
   //get the button class to know if asscending of descending
   var className = $(this).attr('class').split(' ')[2];
-  //console.log(className);
   var parentContainer = $(tabId);	
   var bookArray = $(tabId).find('.ai');  
   
@@ -23,6 +21,12 @@ var sortByAlph = function(){
     else if (className == "ascAZ" || className == "descZA"){
       var an = a.getElementsByTagName("figcaption")[0].textContent;
       var bn = b.getElementsByTagName("figcaption")[0].textContent;
+    }  
+
+    else if (className == "asc-price" || className == "desc-price"){
+      var an = a.getElementsByTagName("figcaption")[1].textContent.replace('$', '');
+      var bn = b.getElementsByTagName("figcaption")[1].textContent.replace('$', '');
+      console.log("An is " + an + " Bn is " + bn);
     }
     
     //ascending order
@@ -34,8 +38,8 @@ var sortByAlph = function(){
        return -1;
       }
       return 0;   
-      //console.log(an);
     }
+
     //descending order
     else if (className == "descZA" || className == "desc-oldest"){
       if (an > bn){
@@ -45,7 +49,14 @@ var sortByAlph = function(){
        return 1;
       }
       return 0;   
-      //console.log(an);
+    }
+
+        //price sorting
+    if (className == "asc-price"){
+      return (an - bn);
+    }
+    else if (className == "desc-price"){
+      return (bn - an);
     }
 
     
@@ -55,10 +66,12 @@ var sortByAlph = function(){
 }
 
 
-$(".ascAZ").click(sortByAlph);
-$(".descZA").click(sortByAlph);
-$(".asc-newest").click(sortByAlph);
-$(".desc-oldest").click(sortByAlph);
+$(".ascAZ").click(sortFunction);
+$(".descZA").click(sortFunction);
+$(".asc-newest").click(sortFunction);
+$(".desc-oldest").click(sortFunction);
+$(".asc-price").click(sortFunction);
+$(".desc-price").click(sortFunction);
 
 
 </script>

@@ -13,4 +13,10 @@
 		<button  title="Descending sorting by date"type="button" class="btn btn-default desc-oldest" aria-label="Left Align">
 	  		<span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
 		</button>
+		<button title="Ascending sorting by price"type="button" class="btn btn-default asc-price" aria-label="Left Align">
+				<span class="glyphicon glyphicon-usd"></span>
+		</button>
+		<button title="Descending sorting by price"type="button" class="btn btn-default desc-price" aria-label="Left Align">
+				<span class="glyphicon glyphicon-chevron-down"></span>
+		</button>		
 	</div>

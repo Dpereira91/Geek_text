@@ -66,7 +66,6 @@
 		$current = $genresRow['genre'];
 		echo '<div id="menu'. str_replace(' ', '', $genresRow['genre']) . '"' . 'class="tab-pane fade">';
 
-		// $buttonID = "buttonAZ";
 
 	    // buttons used for sorting
 		include("book_sorting_buttons.php");
