@@ -1,7 +1,8 @@
 
 <?php
 echo'<a class="ai" href=""><input type="hidden" value="' . htmlspecialchars( $row['published_year']) . '" name="pubDate">
-<figure><img class="imgi" src="default_book.png" alt=""><figcaption>' . $row["title"] . '</figcaption><figcaption>';
+<figure><img class="imgi" src="images/'. $row["id"] . '.png" alt=""><figcaption>' . $row["title"] . '</figcaption>
+<figcaption>$' . $row["price"] . '</figcaption><figcaption>';
 if ( $row['rating'] <= '1' ) {
 	echo'<img src="ratings/1.png" style="width:100px; height:20px;">';
 }

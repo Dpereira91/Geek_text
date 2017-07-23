@@ -67,6 +67,7 @@
 	    	echo '</div>';	
     	}
 
+	include("footer.php");
     ?>
 </div>
 
