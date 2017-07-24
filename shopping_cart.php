@@ -48,7 +48,7 @@ $count2=mysqli_num_rows($result2);
           <td class="fit"><?php echo( htmlspecialchars( $row['title'] ) ); ?></td>
           <td class="fit"><?php echo( htmlspecialchars( $row['price'] ) ); ?></td>
           <input type="hidden" name="cart_bookid" value="<?php echo( htmlspecialchars( $row['bookid'] ) ); ?>">
-          <td class="fit"><input type="text" name="cart_quantity" value="<?php echo( htmlspecialchars( $row['quantity'] ) ); ?>" placeholder="Quantity"></td>
+          <td class="fit"><input type="number" name="cart_quantity" value="<?php echo( htmlspecialchars( $row['quantity'] ) ); ?>" placeholder="Quantity"></td>
           <td class="fit"><?php echo( "$". htmlspecialchars( $row['price'] ) * htmlspecialchars( $row['quantity'] ) ); ?></td>
           
           <td class="fit"><input type="submit" name="action" value="Update"   class="btn btn-success"></td>

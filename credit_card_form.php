@@ -1,7 +1,7 @@
 <!-- This form is used to add a new credir card for the customer. It's used from account.php file -->
 
-	<p style="margin-left: 20;"><input type="text" name="card_num" placeholder="Credit Card Number"></p>
-	<p style="margin-left: 20;"><input type="text" name="cvv_num" placeholder="CVV Number"></p>
+	<p style="margin-left: 20;"><input type="number" name="card_num" placeholder="Credit Card Number"></p>
+	<p style="margin-left: 20;"><input type="number" name="cvv_num" placeholder="CVV Number"></p>
 	<p style="margin-left: 20;">
 	<p style="margin-left: 20;"><input type="text" name="card_street" placeholder="Street Address"></p>
 	<p style="margin-left: 20;"><input type="text" name="card_city" placeholder="City"></p>
@@ -17,7 +17,7 @@
 		<option value="CA">CA</option>
 		<option value="CO">CO</option>
 		<option value="CT">CT</option>
-		<option value="AL">AL</option>
+		<option value="DC">DC</option>
 		<option value="DE">DE</option>
 		<option value="FL">FL</option>
 		<option value="GA">GA</option>
@@ -64,7 +64,7 @@
 	</select>
 
 
-	<p style="margin-left: 20;"><input type="text" name="card_zip" placeholder="Zip Code"></p>
+	<p style="margin-left: 20;"><input type="number" name="card_zip" placeholder="Zip Code"></p>
 	</p>
 		<p style="margin-left: 20;"><label>Credit Card Type:</label>
 		<select name="card_type">
