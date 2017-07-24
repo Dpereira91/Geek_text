@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2017 at 09:36 PM
+-- Generation Time: Jul 24, 2017 at 08:07 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `bookid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,8 +38,11 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `bookid`, `quantity`) VALUES
-('dale', 0, 2);
+INSERT INTO `cart` (`user_id`, `bookid`, `quantity`) VALUES
+('dale', 0, 3),
+('dale', 1, 4),
+('dale', 2, 4),
+('dale', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -48,17 +51,10 @@ INSERT INTO `cart` (`id`, `bookid`, `quantity`) VALUES
 --
 
 CREATE TABLE `savedcart` (
-  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `bookid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `savedcart`
---
-
-INSERT INTO `savedcart` (`id`, `bookid`, `quantity`) VALUES
-('dale', 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -68,13 +64,13 @@ INSERT INTO `savedcart` (`id`, `bookid`, `quantity`) VALUES
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`user_id`,`bookid`);
 
 --
 -- Indexes for table `savedcart`
 --
 ALTER TABLE `savedcart`
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`user_id`,`bookid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

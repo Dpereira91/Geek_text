@@ -23,13 +23,15 @@ echo "</div>";
  
 // Escape user inputs for security
 $id = $_SESSION['username'];
-$bookIDNum = mysqli_real_escape_string($link, $_REQUEST['cart_bookid']);
-$quan = mysqli_real_escape_string($link, $_REQUEST['cart_quantity']);
+$savedbookIDNum = mysqli_real_escape_string($link, $_REQUEST['savedcart_bookid']);
+$savedquan = mysqli_real_escape_string($link, $_REQUEST['savedcart_quantity']);
 
-if ($_POST['action']=='Update'){
-	$sql = "UPDATE cart SET bookid= '$bookIDNum', quantity = '$quan' WHERE user_id ='$id' and bookid ='$bookIDNum'";
 
-		if(mysqli_query($link, $sql)){
+if ($_POST['action']=='Move to Cart'){
+	$sql4 = "INSERT INTO cart VALUES('$id', '$savedbookIDNum', '$savedquan')";
+	$sql5 = "DELETE FROM savedcart WHERE user_id='$id' and bookid='$savedbookIDNum'";
+
+		if(mysqli_query($link, $sql4) && mysqli_query($link, $sql5)) {
 			header("location:shopping_cart.php");
 		}
 		else{
@@ -37,22 +39,10 @@ if ($_POST['action']=='Update'){
 		}
 }
 
-if ($_POST['action']=='Remove'){
-	$sql1 = "DELETE FROM cart WHERE user_id='$id' and bookid='$bookIDNum'";
+if ($_POST['action']=='Remove From List'){
+	$sql6 = "DELETE FROM savedcart WHERE user_id='$id' and bookid='$savedbookIDNum'";
 
-		if(mysqli_query($link, $sql1)){
-			header("location:shopping_cart.php");
-		}
-		else{
-			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-		}
-}
-
-if ($_POST['action']=='Save For Later'){
-	$sql2 = "INSERT INTO savedcart VALUES('$id', '$bookIDNum', '$quan')";
-	$sql3 = "DELETE FROM cart WHERE user_id='$id' and bookid='$bookIDNum'";
-
-		if(mysqli_query($link, $sql2) && mysqli_query($link, $sql3)) {
+		if(mysqli_query($link, $sql6)){
 			header("location:shopping_cart.php");
 		}
 		else{
