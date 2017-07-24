@@ -1,0 +1,255 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"str",
+				"strcmp"
+			],
+			[
+				"trap",
+				"trapArea"
+			],
+			[
+				"area",
+				"areaP1"
+			],
+			[
+				"__",
+				"__device__"
+			],
+			[
+				"merge",
+				"MergeSum"
+			],
+			[
+				"thread",
+				"threadIdx"
+			],
+			[
+				"bloc",
+				"blockDim"
+			],
+			[
+				"bl",
+				"blockDim"
+			],
+			[
+				"block",
+				"blockIdx"
+			],
+			[
+				"_",
+				"__device__"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Nicolas/Documents/school/Software Engineering/theLastBorders/Geek_text/style.css",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/rateAbook",
+		"/C/Users/Nicolas/Documents/GitHub/Geek_text/main.c",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/index.html",
+		"/C/Users/Nicolas/Documents/school/Net Centric Computing/ajax.html",
+		"/C/Users/Nicolas/Documents/school/Net Centric Computing/Chapter4 Problems",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/deactivate.php",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/dropdown.css",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/dropdown.php",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/add_card_helper.php",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/creditCardPreferences,php.php",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/add_card.php",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/js/creative.js",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/mysql-5.7.18-winx64/mysql-5.7.18-winx64/README",
+		"/C/Users/Nicolas/Documents/school/Operating System/blah.c",
+		"/C/Users/Nicolas/Documents/school/Software Engineering/final-src-osc9e/final-src-osc9e/ch2/simple.c",
+		"/C/Users/Nicolas/Desktop/TCPServer1.py",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/js/creative.min.js",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/less/variables.less",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/less/creative.less",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/less/mixins.less",
+		"/C/Users/Nicolas/Documents/school/Structured Comp Org/gputest.c",
+		"/C/Users/Nicolas/Documents/school/Structured Comp Org/final.c",
+		"/C/Program Files/swipl/doc/windows.html",
+		"/C/Users/Nicolas/Documents/school/Programming 3/Shafeeque.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/newprocesssamples/myshell.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/DannySuarezA3/DannySuarezA3/myshell.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/NicolasDabdoubL5/pipedemo.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/DannySuarezA3/myshell.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/NicolasDaboubA2/main.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/mph/Makefile",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/main.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/bmplib/main.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/bmplib/Makefile",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/bmplib/example.bmp",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/bmplib/bmplib.h",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/bmplib/bmplib.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/Shafeeque's.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/HW2/Shafeeque's",
+		"/C/Users/Nicolas/Documents/school/Programming 3/NicolasDaboubA2.zip",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/vendor/bootstrap/css/bootstrap.css",
+		"/C/Users/Nicolas/Desktop/Model Website.html",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/css/creative.css",
+		"/C/Users/Nicolas/Documents/school/Programming 3/RafaelLealA1/testbst.h",
+		"/C/Users/Nicolas/Documents/school/Programming 3/RafaelLealA1/testbst.c",
+		"/C/Users/Nicolas/Documents/school/Programming 3/Makefile",
+		"/C/Users/Nicolas/Documents/CS Stuff/Polyhacks/scratch",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/css/creative.min.css",
+		"/C/Users/Nicolas/Documents/CS Stuff/startbootstrap-creative-gh-pages/startbootstrap-creative-gh-pages/index.html"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"BUFFSIZ",
+			"meta"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "account.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 188.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
