@@ -2,11 +2,55 @@
 
 //Alphabaetical Sorting
 var sortFunction = function(){
+
   //get the corrent working tab
   var tabId = "#" + $(this).parent().parent().prop("id");
 
   //get the button class to know if asscending of descending
-  var className = $(this).attr('class').split(' ')[2];
+  var classNameSort = $(this).attr('class').split(' ')[2];
+  //console.log(classNameSort);
+  var className = $(this).attr('class').split(' ')[3];
+  //console.log(className);
+
+
+  if (classNameSort == "alpha"){
+    if (className == "descZA"){
+      className = "ascAZ";
+      $(this).addClass("ascAZ");
+      $(this).removeClass("descZA");
+    } else if (className == "ascAZ"){
+       className = "descZA";
+      $(this).addClass("descZA");
+      $(this).removeClass("ascAZ");
+    }
+  }
+
+
+  if (classNameSort == "date"){
+    if (className == "desc-oldest"){
+      className = "asc-newest";
+      $(this).addClass("asc-newest");
+      $(this).removeClass("desc-oldest");
+    } else if (className == "asc-newest"){
+       className = "desc-oldest";
+      $(this).addClass("desc-oldest");
+      $(this).removeClass("asc-newest");
+    }
+  }
+
+  if (classNameSort == "price"){
+    if (className == "desc-price"){
+      className = "asc-price";
+      $(this).addClass("asc-price");
+      $(this).removeClass("desc-price");
+    } else if (className == "asc-price"){
+       className = "desc-price";
+      $(this).addClass("desc-price");
+      $(this).removeClass("asc-price");
+    }
+  }
+
+
   var parentContainer = $(tabId);	
   var bookArray = $(tabId).find('.ai');  
   
@@ -66,12 +110,9 @@ var sortFunction = function(){
 }
 
 
-$(".ascAZ").click(sortFunction);
-$(".descZA").click(sortFunction);
-$(".asc-newest").click(sortFunction);
-$(".desc-oldest").click(sortFunction);
-$(".asc-price").click(sortFunction);
-$(".desc-price").click(sortFunction);
+$(".alpha").click(sortFunction);
+$(".date").click(sortFunction);
+$(".price").click(sortFunction);
 
 
 </script>
