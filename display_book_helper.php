@@ -6,7 +6,7 @@ echo'<a class="ai">
 	<img class="imgi" src="images/'. $row["id"] . '.png" alt="images/1.png">
 	<figcaption>' . $row["title"] . '</figcaption>
 	<figcaption>$' . $row["price"] . '</figcaption>
-	<form action="book_details.php" method="post">
+	<form action="book_details.php" method="get">
     <button type="submit" value=' .$row["id"]. ' class="btn btn-success" name="bookid" >View Details</button>
 	</form>
 	<figcaption>';
