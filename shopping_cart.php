@@ -8,7 +8,12 @@
 <?php include("header.php");
 	
 $link = mysqli_connect("localhost", "root", "", "geek_text");
-$id = $_SESSION['username'];
+if ( isset($_SESSION['username'] ) ) {
+	$id = $_SESSION['username'];
+}
+else {
+	$id = 'guest';
+}
 	
 $sql = "SELECT title, price, bookid, quantity FROM books INNER JOIN cart WHERE cart.user_id ='$id' AND books.id = cart.bookid";
 $result1 = mysqli_query($link, $sql);

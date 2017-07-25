@@ -5,8 +5,8 @@ echo'<a class="ai" href=""><input type="hidden" value="' . htmlspecialchars( $ro
 	<img class="imgi" src="images/'. $row["id"] . '.png" alt="">
 	<figcaption>' . $row["title"] . '</figcaption>
 	<figcaption>$' . $row["price"] . '</figcaption>
-    <button id="addCartButton" class="btn btn-success">Add to Cart</button></p>
-	<form id="new_cart_item" action="add_to_cart.php" method="post" style="display:none;">
+    <button value=' .$row["id"]. ' class="btn btn-success" name="addtocart_btn" >Add to Cart</button>
+	<form name="new_cart_item" action="add_to_cart.php" method="post" style="display:none;"></form>
 	<figcaption>';
 if ( $row['rating'] <= '1' ) {
 	echo'<img src="ratings/1.png" style="width:100px; height:20px;">';
