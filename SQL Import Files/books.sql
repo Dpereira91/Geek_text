@@ -19,7 +19,7 @@ CREATE TABLE `books` (
   `rating` float NOT NULL,
   `price` varchar(6) NOT NULL,
   `published_year` varchar(4) NOT NULL,
-  `author` varchar(20) NOT NULL
+  `author` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
