@@ -45,8 +45,8 @@ figcaption {
 }
 .imgi {
 	border: none;
-	max-width: 100%;
-	height: auto;
+	width: 100%;
+	height: 30%;
 	display: block;
 	background: #ccc;
 	transition: transform .2s ease-in-out;

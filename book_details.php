@@ -8,6 +8,9 @@
 <?php 
 	include("header.php");
 	$link = mysqli_connect("localhost", "root", "", "geek_text");
+	if($link === false){
+		die("ERROR: Could not connect. " . mysqli_connect_error());
+	}
 	echo'<div style="display:flex; flex-wrap: wrap;">';
 ?>
 
@@ -17,14 +20,15 @@
 <!-- Book Details -->
 <div>
 <?php
-		$sql = "SELECT id, title, author, description, genre, rating, price, published_year, photo FROM books WHERE id = 1";
+		$id = mysqli_real_escape_string($link, $_REQUEST['bookid']);
+		$sql = "SELECT * FROM books WHERE id = $id";
 		$result = mysqli_query($link, $sql);
 
 		echo'<div style="display:flex; flex-wrap: wrap;">';
 		while ($row=mysqli_fetch_array($result)) {
 		?>
 
-		<p style="float: left;"><img src="<?php echo $row['photo']?>" height="300px" width="200px" border="1px" hspace="20"></a></p>
+		<p style="float: left;"><img src="images/<?php echo $row['id']?>.png" height="300px" width="200px" border="1px" hspace="20"></a></p>
 		<h3><?php echo $row['title']?></h3>
 		<hr>
 		<p><b>Author:</b> <?php echo $row['author']?></p>
