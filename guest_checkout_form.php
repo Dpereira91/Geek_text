@@ -1,14 +1,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Guest Checkout</title>
+	<title>Checkout</title>
 <head>
 <body>
 
 <?php include("header.php");?>
 
 <br><br>
-<h2 style="margin-left: 20;">Guest Checkout</h2>
+<h2 style="margin-left: 20;">Checkout</h2>
 
 <br>
 <form action="" method="post">
@@ -26,6 +26,10 @@
 <?php include("credit_card_form.php"); ?>
 <p><input style="margin-left: 20;" type="submit" class="btn btn-success" value="Checkout"></p>
 </form>
+
+<?php
+	include("footer.php");
+?>
 
 </body>	
 </html>
