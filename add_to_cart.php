@@ -9,7 +9,7 @@ if($link === false){
 }
 $id = $_SESSION['username'];
 $bookid = mysqli_real_escape_string($link, $_REQUEST['bookid']);
-$quantity = 1;
+$quantityToInsert = mysqli_real_escape_string($link, $_REQUEST['book_quantity']);
 
 $sql = "SELECT * FROM cart WHERE user_id='$id' AND bookid='$bookid'";
 $result = mysqli_query($link, $sql);
@@ -20,7 +20,7 @@ $link = mysqli_connect("localhost", "root", "", "geek_text");
 
 if($count > 0)
 {
-	$sql = "UPDATE cart SET quantity = quantity + 1 WHERE user_id='$id' AND bookid='$bookid'";
+	$sql = "UPDATE cart SET quantity = quantity + '$quantityToInsert' WHERE user_id='$id' AND bookid='$bookid'";
 	if(mysqli_query($link, $sql)){
 		header("location:shopping_cart.php");
 	}
@@ -31,7 +31,7 @@ if($count > 0)
 }
 else
 {
-	$sql = "INSERT INTO cart VALUES('$id', '$bookid', '$quantity')";
+	$sql = "INSERT INTO cart VALUES('$id', '$bookid', '$quantityToInsert')";
 	if(mysqli_query($link, $sql)){
 		header("location:shopping_cart.php");
 	}
@@ -40,7 +40,7 @@ else
 		echo "ERROR: Could not execute $sql. " . mysqli_error($link);
 	}
 	
-	echo'added into table '. $id .' '. $bookid .' '. $quantity .'';
+	echo'added into table '. $id .' '. $bookid .' '. $quantityToInsert .'';
 }
 
 mysqli_close($link);
