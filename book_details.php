@@ -25,7 +25,7 @@
 		<p>
 			<b>Author: </b>
 			<form action="book_authors.php" method="get">
-			<button style="background:none; border:none; padding:0; margin-left:10px;" type="submit" value="'. $row["author"] .'" name="author" >'. $row["author"] .'</button>
+			<button style="color:#1589c9; background:none; border:none; padding:0; margin-left:10px;" type="submit" value="'. $row["author"] .'" name="author" >'. $row["author"] .'</button>
 			</form>
 		</p>
 		<p style="margin-left: 240px"><b>Genre: </b>'. $row["genre"] .'</p>
@@ -60,9 +60,10 @@
 			echo'<img src="ratings/5.png" style="width:100px; height:20px;">';
 		}
 		echo'</p>
-		<p style="margin-left: 240px"><b>Price: </b>'. $row["price"] .'</p>
+		<p style="margin-left: 240px"><strong>Price: </strong>$'. $row["price"] .'</p>
 		<form action="add_to_cart.php" method="get">
-		<p style="float:right; margin-right:20px;">
+		<p style="float:left; margin-right:20px;">
+		<input style="width: 40px;" type="number" name="book_quantity" value="1" size="5" maxlength="5" required></p>
 		<button type="submit" value="'. $row["id"] .' "class="btn btn-success" name="bookid">Add to Cart</button>
 		</p>
 		</form>';
