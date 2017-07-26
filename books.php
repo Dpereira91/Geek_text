@@ -14,7 +14,7 @@
 
 <!--  ********** Heading section*********** -->
 <div class="container">
-  <h2>All books</h2>
+  <h2>All Books</h2>
   <ul class="nav nav-tabs">
   	<!-- Create main tab heading for all books in all genres -->
     <!-- <li class="active"><a data-toggle="tab" href="#home"></a></li> -->
