@@ -19,7 +19,7 @@
         <ul class="dropdown-menu">
 		  <li><a href="./books.php">All</a></li>
           <li><a href="book_genre.php">Genre</a></li>
-          <li><a href="#">Best Seller</a></li>
+          <li><a href="book_best_seller.php">Best Seller</a></li>
           <li><a href="book_rating.php">Rating</a></li>
         </ul>
       </li>

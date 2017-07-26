@@ -25,7 +25,7 @@
 	        <select name="card_type">
 				<option value="Visa" <?php if($row['type']=="Visa") { ?> selected <?php } ?>>Visa</option>
 				<option value="MasterCard" <?php if($row['type']=="MasterCard") { ?> selected <?php } ?>>MasterCard</option>
-				<option value="AmericanExpress" <?php if($row['type']=="American Express") { ?> selected <?php } ?>>American Express</option>
+				<option value="AmericanExpress" <?php if($row['type']=="AmericanExpress") { ?> selected <?php } ?>>American Express</option>
 			</select>
 	        </td>
 	        <td class="fit"><input type="number"  name="cvv_num" size="4" maxlenght="4"value="<?php echo htmlspecialchars($row['csv_code']); ?>"></td>
@@ -45,6 +45,7 @@
 				<option value="12" <?php if($row['exp_month']=="12") { ?> selected <?php } ?>>12</option>
 			</select>
 	        </td>
+
 	        <td class="fit"><input type="number"  name="exp_year" size="4" maxlenght="4"value="<?php echo htmlspecialchars($row['exp_year']); ?>"></td>
 	        <td class="fit"><input type="text"  name="card_street" value="<?php echo htmlspecialchars($row['billing_street1']); ?>"></td>
 	        <td class="fit"><input type="text"  name="card_city" value="<?php echo htmlspecialchars($row['billing_city']); ?>"></td>
@@ -103,7 +104,7 @@
 				<option value="WY" <?php if($row['billing_state']=="WY") { ?> selected <?php } ?>>WY</option>
 			</select>
 	        </td>
-	        <td class="fit"><input type="text"  name="card_zip" size="5" maxlenght="5" value="<?php echo htmlspecialchars($row['billing_zip_code']); ?>"></td>
+	        <td class="fit"><input type="number"  name="card_zip" size="5" maxlenght="5" value="<?php echo htmlspecialchars($row['billing_zip_code']); ?>"></td>
 	        <td class="fit"><input type="radio" name="preferred" class="preferred-select" value="<?php echo htmlspecialchars($row['preferred']); ?>" 
                                                                       
 	        	<?php 

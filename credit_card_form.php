@@ -1,10 +1,10 @@
 <!-- This form is used to add a new credir card for the customer. It's used from account.php file -->
 
-	<p style="margin-left: 20;"><input type="number" name="card_num" placeholder="Credit Card Number"></p>
-	<p style="margin-left: 20;"><input type="number" name="cvv_num" placeholder="CVV Number"></p>
+	<p style="margin-left: 20;"><input type="number" name="card_num" size="19" maxlenght="19" placeholder="Credit Card Number" required></p>
+	<p style="margin-left: 20;"><input type="number" name="cvv_num" placeholder="CVV Number" required></p>
 	<p style="margin-left: 20;">
-	<p style="margin-left: 20;"><input type="text" name="card_street" placeholder="Street Address"></p>
-	<p style="margin-left: 20;"><input type="text" name="card_city" placeholder="City"></p>
+	<p style="margin-left: 20;"><input type="text" name="card_street" placeholder="Street Address required"></p>
+	<p style="margin-left: 20;"><input type="text" name="card_city" placeholder="City" required></p>
 	<!-- <p style="margin-left: 20;"><input type="text" name="card_state" placeholder="State Abbreviation"></p> -->
 
 
@@ -64,7 +64,7 @@
 	</select>
 
 
-	<p style="margin-left: 20;"><input type="number" name="card_zip" placeholder="Zip Code"></p>
+	<p style="margin-left: 20;"><input type="number" size="5" maxlenght="5" name="card_zip" placeholder="Zip Code" required></p>
 	</p>
 		<p style="margin-left: 20;"><label>Credit Card Type:</label>
 		<select name="card_type">
