@@ -11,7 +11,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="./"><img src="images/logo1.png" style="width:250px;height:50px;"></a>
+      <a href="./"><img src="images/logo1.png" style="width:250px;height:45px;"></a>
       <a class="navbar-brand" style="color:chartreuse; font-size: 24;" href="./"></a>
     </div>
     <ul class="nav navbar-nav">
@@ -29,7 +29,7 @@
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Search by Book Title" name="title">
 		</div>
-		<button type="submit" class="btn btn-default">Search</button>
+		<button style="color:black; background-color:#ffc600;" type="submit" class="btn btn-default">Search</button>
 	</form>
 	
     <ul class="nav navbar-nav navbar-right">
