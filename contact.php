@@ -17,8 +17,6 @@
 <p style="font-size:2em;"><b>Give us a Call</b><br></p>
 <p style="font-size:1.5em;">1-800-440-0680<br></p>
 <br>
-<p style="font-size:2em;"><b>Chat with us</b><br></p>
-<button style="color:black; background-color:#ffc600; padding:10px 24px; border-radius:8px;"><b>Chat Now</b></button>
 </center>
 
 <?php include("footer.php");?>
