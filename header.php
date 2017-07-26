@@ -42,7 +42,14 @@
 						 <li><a href="./sign_in.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
 				}	
 				else{
-					echo'<li><a href="./shopping_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+					
+					$id = $_SESSION['username'];
+					$link = mysqli_connect("localhost", "root", "", "geek_text");
+					$sql = "SELECT * FROM cart WHERE user_id ='$id'";
+					$result1 = mysqli_query($link, $sql);
+					$count1=mysqli_num_rows($result1);
+					
+					echo'<li><a href="./shopping_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart - '.$count1.' item(s)</a></li>
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./account.php">'.$_SESSION['username']. '<span class="caret"></span></a>
 	        				<ul class="dropdown-menu">
 		          				<li><a href="./account.php">Account</a></li>

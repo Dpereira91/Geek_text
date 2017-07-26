@@ -12,7 +12,7 @@ if ( isset($_SESSION['username'] ) ) {
 	$id = $_SESSION['username'];
 }
 else {
-	$id = 'guest';
+	$id = '';
 }
 	
 $sql = "SELECT title, price, bookid, quantity FROM books INNER JOIN cart WHERE cart.user_id ='$id' AND books.id = cart.bookid";
@@ -54,11 +54,11 @@ $count2=mysqli_num_rows($result2);
           <td class="fit"><?php echo( htmlspecialchars( $row['price'] ) ); ?></td>
           <input type="hidden" name="cart_bookid" value="<?php echo( htmlspecialchars( $row['bookid'] ) ); ?>">
           <td class="fit"><input type="number" name="cart_quantity" value="<?php echo( htmlspecialchars( $row['quantity'] ) ); ?>" placeholder="Quantity"></td>
-          <td class="fit"><?php echo( "$". htmlspecialchars( $row['price'] ) * htmlspecialchars( $row['quantity'] ) ); ?></td>
+          <td class="fit"><?php echo( "$". number_format(htmlspecialchars( $row['price'] ) * htmlspecialchars( $row['quantity'] ), 2) ); ?></td>
           
-          <td class="fit"><input type="submit" name="action" value="Update"   class="btn btn-success"></td>
+          <td class="fit"><input type="submit" name="action" value="Update" class="btn btn-success" style="margin: 2px;"></td>
 	      <td class="fit"><input type="submit" name="action" value="Remove" class="btn btn-danger"></td>
-	      <td class="fit"><input type="submit" name="action" value="Save For Later"   class="btn btn-success"></td>
+	      <td class="fit"><input type="submit" name="action" value="Save For Later" class="btn btn-success"></td>
 	      <br />
 	</tr>
 	
@@ -69,7 +69,7 @@ $count2=mysqli_num_rows($result2);
 </table>
 
 <br />
-<h5 style="margin-left: 760px;">Your cart total: <?php echo("$". $totalcart); ?></h5>
+<h5 style="margin-left: 760px;">Your cart total: <?php echo("<strong>$". number_format( $totalcart, 2 )."</strong>"); ?></h5>
 
 <?php } ?>
 
