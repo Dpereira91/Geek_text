@@ -178,7 +178,7 @@
 </div>
 
 <br /><br /><br /><br /><br /><br />
-<div id="deleteBtn"><input type="submit" name="action" value="Deactivate Account" class="btn btn-danger"></div>
+<div id="deleteBtn" style="margin: 20px;"><input type="submit" name="action" value="Deactivate Account" class="btn btn-danger"></div>
 
 <script>
 // <!-- JQuery function to unhide form to add a new credit card on button click-->
@@ -240,5 +240,8 @@
 
 	});
 </script>
+
+<?php include("footer.php"); ?>
+
 </body>
 </html>

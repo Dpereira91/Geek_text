@@ -2,6 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Home Page</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -30,10 +31,6 @@
 	
 	include("footer.php");
 ?>
-
-<style>
-	<?php include("style.css"); ?>
-</style>
 
 </body>
 </html>

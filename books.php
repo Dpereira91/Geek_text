@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Books</title>
 </head>
 <body>
@@ -49,9 +50,7 @@
 	include("footer.php");
 ?>
 
-<style>
-	<?php include("style.css"); ?>
-</style>
+
 
 	<!-- scripts used by the sorting buttons -->
  	<?php include"book_sorting_scripts.php" ?>

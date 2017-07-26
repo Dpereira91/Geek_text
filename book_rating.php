@@ -72,9 +72,7 @@
 </div>
 
 
-<style>
-	<?php include("style.css"); ?>
-</style>
+
 
  <?php include"book_sorting_scripts.php" ?>
 
