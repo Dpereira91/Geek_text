@@ -1,14 +1,13 @@
 
 <?php
-echo'<a class="ai">
+echo'<a class="ai" style="text-decoration:none;">
 <input type="hidden" value="' . htmlspecialchars( $row['published_year']) . '" name="pubDate">
 <figure>
-	<img class="imgi" src="images/'. $row["id"] . '.png" alt="images/1.png">
+	<form action="book_details.php" method="get">
+	<button class="imgi" type="submit" value=' .$row["id"]. ' style="background: url(images/'. $row["id"] . '.png); background-size: 100% 100%; height:300px; width:200px;" name="bookid"></button>
+	</form>
 	<figcaption>' . $row["title"] . '</figcaption>
 	<figcaption>$' . $row["price"] . '</figcaption>
-	<form action="book_details.php" method="get">
-    <button type="submit" value=' .$row["id"]. ' class="btn btn-success" name="bookid" >View Details</button>
-	</form>
 	<figcaption>';
 if ( $row['rating'] <= '1' ) {
 	echo'<img src="ratings/1.png" style="width:100px; height:20px;">';
