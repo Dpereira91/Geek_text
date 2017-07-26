@@ -62,7 +62,8 @@
 		echo'</p>
 		<p style="margin-left: 240px"><strong>Price: </strong>$'. $row["price"] .'</p>
 		<form action="add_to_cart.php" method="get">
-		<p style="float:left; margin-right:20px;">
+		<br /><br />
+		<p style="float:left; margin-left:240px;">
 		<input style="width: 40px;" type="number" name="book_quantity" value="1" size="5" maxlength="5" required></p>
 		<button type="submit" value="'. $row["id"] .' "class="btn btn-success" name="bookid">Add to Cart</button>
 		</p>
