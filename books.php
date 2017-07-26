@@ -14,7 +14,7 @@
 
 
 <!--  ********** Heading section*********** -->
-<div class="container">
+<div class="container" style="width: 90%">
   <h2>All Books</h2>
   <ul class="nav nav-tabs">
   	<!-- Create main tab heading for all books in all genres -->
@@ -42,13 +42,15 @@
 			include("display_book_helper.php");
 		}
 		?>
-		</div>
-		</div>
+	</div>
+ </div>
+</div>
 
 <?php
 	mysqli_close($link);
 	include("footer.php");
 ?>
+
 
 
 
