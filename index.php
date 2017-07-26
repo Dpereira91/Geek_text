@@ -7,7 +7,7 @@
 
 <?php include("header.php");?>
 
-<p><img src="images/banner.png" style="margin-top:-30px; max-width:100%;"></p>
+<p><img src="images/banner_new.png" style="margin-top:-30px; max-width:100%;"></p>
 
 <p style="text-align: center;"><b>Geek Text</b></p>
 <br>
