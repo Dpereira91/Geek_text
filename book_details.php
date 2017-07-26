@@ -61,7 +61,11 @@
 		}
 		echo'</p>
 		<p style="margin-left: 240px"><b>Price: </b>'. $row["price"] .'</p>
-		<p style="float:right; margin-right:20px;"><button style="background-color:limegreen; color:white;"><strong>Add to Cart</strong></button></p>';
+		<form action="add_to_cart.php" method="get">
+		<p style="float:right; margin-right:20px;">
+		<button type="submit" value="'. $row["id"] .' "style="background-color:limegreen; color:white;" name="bookid">Add to Cart</button>
+		</p>
+		</form>';
 	mysqli_close($link);
 	include("footer.php");
 ?>

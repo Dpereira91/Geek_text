@@ -29,20 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `user_id` varchar(255) NOT NULL,
+  `user_id` varchar(30) NOT NULL,
   `bookid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`user_id`, `bookid`, `quantity`) VALUES
-('dale', 0, 3),
-('dale', 1, 4),
-('dale', 2, 4),
-('dale', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -51,27 +41,10 @@ INSERT INTO `cart` (`user_id`, `bookid`, `quantity`) VALUES
 --
 
 CREATE TABLE `savedcart` (
-  `user_id` varchar(255) NOT NULL,
+  `user_id` varchar(30) NOT NULL,
   `bookid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`user_id`,`bookid`);
-
---
--- Indexes for table `savedcart`
---
-ALTER TABLE `savedcart`
-  ADD PRIMARY KEY (`user_id`,`bookid`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

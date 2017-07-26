@@ -1,35 +1,46 @@
 <html>
 <body>
 
-<?php include("header.php"); ?>
-
-<?php 
-
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
+<?php
+include("header.php"); 
 $link = mysqli_connect("localhost", "root", "", "geek_text");
- 
-// Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 $id = $_SESSION['username'];
-$bookIDNum = mysqli_real_escape_string($link, $_REQUEST['addtocart_btn']);
+$bookid = mysqli_real_escape_string($link, $_REQUEST['bookid']);
 $quantity = 1;
-$quantiti = $quantity + 1;
 
-$sql = "SELECT * FROM cart WHERE user_id='$id' and bookid = '$bookIDNum'";
+$sql = "SELECT * FROM cart WHERE user_id='$id' AND bookid='$bookid'";
 $result = mysqli_query($link, $sql);
+$count=mysqli_num_rows($result);
+mysqli_close($link);
 
-$count = mysqli_num_rows($result);
+$link = mysqli_connect("localhost", "root", "", "geek_text");
 
-if($count == 0)
+if($count > 0)
 {
-	$sql = "INSERT INTO cart user_id, bookid, quantity) 
-			VALUES ('$id', '$bookid', '$quantity'";
+	$sql = "UPDATE cart SET quantity = quantity + 1 WHERE user_id='$id' AND bookid='$bookid'";
+	if(mysqli_query($link, $sql)){
+		header("location:shopping_cart.php");
+	}
+	else
+	{
+		echo "ERROR: Could not execute $sql. " . mysqli_error($link);
+	}
 }
-else{
-	$sql = "INSERT INTO cart (quantity) VALUES '$quantiti'";
+else
+{
+	$sql = "INSERT INTO cart VALUES('$id', '$bookid', '$quantity')";
+	if(mysqli_query($link, $sql)){
+		header("location:shopping_cart.php");
+	}
+	else
+	{
+		echo "ERROR: Could not execute $sql. " . mysqli_error($link);
+	}
+	
+	echo'added into table '. $id .' '. $bookid .' '. $quantity .'';
 }
 
 mysqli_close($link);
