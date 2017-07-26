@@ -46,11 +46,12 @@
 					
 					$id = $_SESSION['username'];
 					$link = mysqli_connect("localhost", "root", "", "geek_text");
-					$sql = "SELECT * FROM cart WHERE user_id ='$id'";
+					$sql = "SELECT SUM(quantity) AS sum FROM cart WHERE user_id ='$id'";
 					$result1 = mysqli_query($link, $sql);
 					$count1=mysqli_num_rows($result1);
+					$row1=mysqli_fetch_array($result1);						
 					
-					echo'<li><a href="./shopping_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart - '.$count1.' item(s)</a></li>
+					echo'<li><a href="./shopping_cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart - '.$row1['sum'].' item(s)</a></li>
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="./account.php">'.$_SESSION['username']. '<span class="caret"></span></a>
 	        				<ul class="dropdown-menu">
 		          				<li><a href="./account.php">Account</a></li>
