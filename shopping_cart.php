@@ -91,7 +91,7 @@ if ( isset($_SESSION['username'] ) ) {
 			  <input type="hidden" name="savedcart_bookid" value="<?php echo( htmlspecialchars( $row_saved['bookid'] ) ); ?>">
 			  <input type="hidden" name="savedcart_quantity" value="<?php echo( htmlspecialchars( $row_saved['quantity'] ) ); ?>">
 			  <td class="fit"><?php echo( htmlspecialchars( $row_saved['quantity'] ) ); ?></td>
-			  <td class="fit"><?php echo( "$". htmlspecialchars( $row_saved['price'] ) * htmlspecialchars( $row_saved['quantity'] ) ); ?></td>
+			  <td class="fit"><?php echo( "$". number_format(htmlspecialchars( $row_saved['price'] ) * htmlspecialchars( $row_saved['quantity'] ), 2 ) ); ?></td>
 		  
 			  <td class="fit"><input type="submit" name="action" value="Move to Cart"   class="btn btn-success" style="margin: 2px;"></td>
 			  <td class="fit"><input type="submit" name="action" value="Remove From List" class="btn btn-danger"></td>
