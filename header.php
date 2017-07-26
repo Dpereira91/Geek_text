@@ -27,7 +27,7 @@
 	
     <form class="navbar-form navbar-left" action="book_search.php" method="get">
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Search by Book Title" name="title">
+			<input type="text" class="form-control" placeholder="Search by Book Title" name="title" size="50">
 		</div>
 		<button style="color:black; background-color:#ffc600;" type="submit" class="btn btn-default">Search</button>
 	</form>
