@@ -18,9 +18,9 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse Books<span class="caret"></span></a>
         <ul class="dropdown-menu">
 		  <li><a href="./books.php">All</a></li>
-          <li><a href="book_genre.php">Genre</a></li>
-          <li><a href="#">Best Seller</a></li>
-          <li><a href="book_rating.php">Rating</a></li>
+          <li><a href="book_genre.php">By Genre</a></li>
+          <li><a href="#">By Best Selling</a></li>
+          <li><a href="book_rating.php">By Rating</a></li>
         </ul>
       </li>
     </ul>
