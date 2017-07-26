@@ -7,17 +7,21 @@
 
 <?php include("header.php");?>
 
-<h3 style="margin-left: 20;">Sign in</h3>
-
-<form action="check_login.php" method="post">
-    <p style="margin-left: 20;"><input type="text" name="id" placeholder="User ID"></p>
-	<p style="margin-left: 20;"><input type="password" name="pw" placeholder="Password"></p>
-    <input  style="margin-left: 20;" type="submit" value="Sign in">
-</form>
-
+<center><p style="font-size:3.5em;"><b>Sign In</b></p></center>
+<hr>
 <br>
-
-<p style="margin-left:20;">Don't have an account?<a style="margin-left: 20;" href="./create_account.php">Sign Up</a>
+<center>
+<form action="check_login.php" method="post">
+    <p><input type="text" name="id" placeholder="User ID"></p>
+    <br>
+	<p><input type="password" name="pw" placeholder="Password"></p>
+	<br>
+    <input type="submit" value="Sign In">
+    <br>
+    <br>
+</form>
+<p>Don't have an account?<a href="./create_account.php"> Sign Up!</a>
+</center>
 
 <?php include("footer.php");?>
 
