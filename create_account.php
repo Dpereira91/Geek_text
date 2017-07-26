@@ -91,7 +91,7 @@
 	<p style="margin-left:50;">By creating an account you are agreeing to our 
 	<a href="./terms.php">Terms of Use</a> and 
 	our <a href="./privacy.php">Privacy Policy</a>.</p>
-
+	<br>
 	<p><input style="margin-left: 50;" type="submit" class="btn btn-success" id="create-account" value="Create Account"></p>
 
 </form>
