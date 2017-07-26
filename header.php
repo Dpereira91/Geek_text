@@ -25,7 +25,7 @@
       </li>
     </ul>
 	
-    <form class="navbar-form navbar-left" action="book_search.php" method="post">
+    <form class="navbar-form navbar-left" action="book_search.php" method="get">
 		<div class="form-group">
 			<input type="text" class="form-control" placeholder="Search by Book Title" name="title">
 		</div>

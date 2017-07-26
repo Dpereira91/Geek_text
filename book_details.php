@@ -31,7 +31,35 @@
 		<p style="margin-left: 240px"><b>Genre: </b>'. $row["genre"] .'</p>
 		<p style="margin-left: 240px; margin-right:20px;"><b>Description: </b>'. $row["description"] .'</p>
 		<p style="margin-left: 240px"><b>Published: </b>'. $row["published_year"] .'</p>
-		<p style="margin-left: 240px"><b>Rating: </b>'. $row["rating"] .'</p>
+		<p style="margin-left: 240px"><b>Rating: </b>';
+		if ( $row['rating'] <= '1' ) {
+			echo'<img src="ratings/1.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'1' && $row['rating']<='1.5') {
+			echo'<img src="ratings/1-5.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'1.5' && $row['rating']<='2') {
+			echo'<img src="ratings/2.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'2' && $row['rating']<='2.5') {
+			echo'<img src="ratings/2-5.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'2.5' && $row['rating']<='3') {
+			echo'<img src="ratings/3.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'3' && $row['rating']<='3.5') {
+			echo'<img src="ratings/3-5.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'3.5' && $row['rating']<='4') {
+			echo'<img src="ratings/4.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'4' && $row['rating']<='4.5') {
+			echo'<img src="ratings/4-5.png" style="width:100px; height:20px;">';
+		}
+		elseif ($row['rating']>'4.5') {
+			echo'<img src="ratings/5.png" style="width:100px; height:20px;">';
+		}
+		echo'</p>
 		<p style="margin-left: 240px"><b>Price: </b>'. $row["price"] .'</p>
 		<p style="float:right; margin-right:20px;"><button style="background-color:limegreen; color:white;"><strong>Add to Cart</strong></button></p>';
 	mysqli_close($link);

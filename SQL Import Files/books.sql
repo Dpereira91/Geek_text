@@ -13,7 +13,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
-  `title` varchar(30) NOT NULL,
+  `title` varchar(50) NOT NULL,
   `description` varchar(500) NOT NULL,
   `genre` varchar(15) NOT NULL,
   `rating` float NOT NULL,

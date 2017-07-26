@@ -11,6 +11,7 @@
 	if($link === false){
 		die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
+	
 	$name = mysqli_real_escape_string($link, $_REQUEST['author']);
 	$sql = "SELECT * FROM authors WHERE name = '$name'";
 	$result = mysqli_query($link, $sql);
@@ -20,12 +21,27 @@
 		<h2 style="margin-left: 20;">Book Author</h2>
 		<h3>'. $row["name"] .'</h3>
 		<hr>
-		<p style="margin-left: 240px; margin-right:240px;"><b>Biography:</b>'. $row["bio"] .'</p>
-		<p style="margin-left: 240px"><b>Books by Author:</b>'. $row["books"] .'</p>';
-		
+		<p style="margin-left: 240px; margin-right:240px;"><b>Biography:<br></b>'. $row["bio"] .'</p>';
+	mysqli_close($link);
+	
+	$link = mysqli_connect("localhost", "root", "", "geek_text");
+	$sql = "SELECT * FROM books WHERE author = '$name'";
+	$result = mysqli_query($link, $sql);
+	
+	
+	echo'<p style="margin-left: 240px"><b>Books by Author:</b></p>';
+	
+	while($row=mysqli_fetch_array($result)){
+		include("display_book_helper.php");
+	}
+	
 	mysqli_close($link);
 	include("footer.php");
 ?>
+
+<style>
+	<?php include("style.css"); ?>
+</style>
 
 </body>
 </html>
