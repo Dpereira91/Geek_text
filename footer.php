@@ -13,8 +13,7 @@
 	© 2017 The Last Borders Company |  
 	<a href="./contact.php">Contact Us</a> |  
 	<a href="./terms.php">Terms of Service</a> |  
-	<a href="./privacy.php">Privacy Policy</a> |  
-	<a href="./help.php">Help</a>
+	<a href="./privacy.php">Privacy Policy</a>
 </p>
 <br>
 </body>
