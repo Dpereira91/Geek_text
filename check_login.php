@@ -19,32 +19,35 @@ if($link === false){
 $id = mysqli_real_escape_string($link, $_REQUEST['id']);
 $pass = mysqli_real_escape_string($link, $_REQUEST['pw']);
 
-//encrypt password to compare to db
-$pass = crypt($pass, 'geek');
-
-//echo "ID: $id  password: $pass\n";
-
  
 // attempt insert query execution
-$sql = "SELECT * FROM user WHERE id='$id' and password='$pass'";
+$sql = "SELECT * FROM user WHERE id='$id'";
 $result=mysqli_query($link, $sql);
-
-// Mysql_num_row is counting table row
 $count=mysqli_num_rows($result);
-var_dump($count);
-// If result matched $username and $password, table row must be 1 row
-if($count > 0)
-{   
-   // Register $username, $password and redirect to file "index.php"
-   $_SESSION['username'] = $id;
-   $_SESSION['password'] = $pass;
-   header("location:index.php");
+$row = mysqli_fetch_array($result);
+$password = $row['password'];
+
+if ($count > 0){
+	$verify = password_verify($pass , $password);
+	echo ("verify is " . $verify);
+
+	if ($verify){
+
+	   $_SESSION['username'] = $id;
+	   $_SESSION['password'] = $pass;
+	   header("location:index.php");
+	}
+
+	else 
+	{
+	   header("location:sign_in.php");
+	}
+} else {
+	header("location:sign_in.php");
+	//echo ("user does not exist");
 }
-else 
-{
-   header("location:sign_in.php");
-}
- 
+
+
 // close connection
 mysqli_close($link);
 ?>

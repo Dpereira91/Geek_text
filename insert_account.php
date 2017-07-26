@@ -47,7 +47,7 @@ foreach ($_REQUEST as $key => $value) {
 	}
 }
 
-$pass = crypt($pass, 'geek');
+$pass = password_hash($pass, PASSWORD_BCRYPT);
 
 if ($invalidInput){
 	echo "Invalid input. Cannot insert values in database <br>";
