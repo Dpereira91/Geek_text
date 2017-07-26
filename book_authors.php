@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Book Author</title>
 </head>
 <body>
@@ -39,9 +40,7 @@
 	include("footer.php");
 ?>
 
-<style>
-	<?php include("style.css"); ?>
-</style>
+
 
 </body>
 </html>

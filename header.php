@@ -19,15 +19,16 @@
         <ul class="dropdown-menu">
 		  <li><a href="./books.php">All</a></li>
           <li><a href="book_genre.php">Genre</a></li>
-          <li><a href="book_best_seller.php">Best Seller</a></li>
+          <li><a href="book_best_seller.php"> By Best Selling</a></li>
           <li><a href="book_rating.php">Rating</a></li>
+
         </ul>
       </li>
     </ul>
 	
     <form class="navbar-form navbar-left" action="book_search.php" method="get">
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Search by Book Title" name="title">
+			<input type="text" class="form-control" placeholder="Search by Book Title" name="title" size="50">
 		</div>
 		<button style="color:black; background-color:#ffc600;" type="submit" class="btn btn-default">Search</button>
 	</form>

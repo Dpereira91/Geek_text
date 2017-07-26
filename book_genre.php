@@ -88,9 +88,7 @@
 </div>
 
 
-<style>
-	<?php include("style.css"); ?>
-</style>
+
 
 <!-- scripts used by the sorting buttons -->
  <?php include"book_sorting_scripts.php" ?>

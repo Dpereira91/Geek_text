@@ -29,7 +29,7 @@ CREATE TABLE `books` (
 INSERT INTO `books` (`id`, `title`, `description`, `genre`, `rating`, `price`, `published_year`, `author`) VALUES
 (0, 'Dale\'s Tales', 'A brief history of Dale\'s life.', 'Biography', 5, '10.10', '2017', 'B. V. Larson'),
 (1, 'Cesar Salads', 'Health and fitness expert, Cesar, shares all his fitness secrets.', 'Health', 4.5, '9.00', '2017', 'Doug Cantor'),
-(2, 'Nicolas\' Life', 'Non-existent.', 'Fiction', 5, 'Free', '2010', 'Tarah Wheeler Van Vlack'),
+(2, 'Nicolas\' Life', 'Non-existent.', 'Fiction', 5, '1.00', '2010', 'Tarah Wheeler Van Vlack'),
 (3, 'Generic Book', 'The generic book for non-readers.', 'General', 5, '15.00', '1964', 'Bernd Schoner'),
 (4, 'Book 1', 'Description 1', 'Horror', 4.2, '8.50', '1956', 'Faithe Wempen'),
 (5, 'The life of Pi', '3.141 59265 358 9793 2384626 433 83 279 50288 41 971 6939 93 7 510.', 'Education', 3.14, '3.14', '1995', 'Heather Cabot'),

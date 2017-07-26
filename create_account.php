@@ -8,19 +8,29 @@
 
 <?php include("header.php");?>
 
-<h2 style="margin-left: 20;">Account Information</h2>
-
+<p style="font-size:3.5em; margin-left: 50"><b>Create Your Account</b></p>
+<hr>
+<br>
 <form name="myForm" id="myForm" action="insert_account.php" method="post">
-	<p style="margin-left: 20;"><input type="text" name="id" id="id" placeholder="User ID" required>*<spam class="input-error" id="id-error"></spam></p>
-	<p style="margin-left: 20;"><input type="password" name="pw" id="pw" placeholder="Enter Password" required>*<spam class="input-error" id="pw-error"></spam></p>
-	<p style="margin-left: 20;"><input type="password" name="confirm-pw" id="confirm-pw" placeholder="Confirm Password" required>*<spam class="input-error" id="confirm-pw-error"></spam></p>
-	<p style="margin-left: 20;"><input type="text" name="name" id="name" placeholder="Name" required>*<spam class="input-error" id="name-error"></spam></p>
-	<p style="margin-left: 20;"><input type="text" name="nickname" id="nickname" placeholder="Nickname" required>*<spam class="input-error" id="nickname-error"></spam></p>
-	<p style="margin-left: 20;"><input type="text" name="email" id="email"placeholder="Email" required>*<spam class="input-error" id="email-error"></spam></p>
-	<p style="margin-left: 20;"><input type="text" name="street1" id="street1" placeholder="Street 1" required>*<spam class="input-error" id="street1-error"></spam></p>
-	<p style="margin-left: 20;"><input type="text" name="street2" id="street2" placeholder="Street 2" required><spam class="input-error" id="street2-error"></spam></p>
-	<p style="margin-left: 20;"><input type="text" name="city" id="city" placeholder="City" required>*<spam class="input-error" id="city-error"></spam></p>
-	<p style="margin-left: 20;"><label>State</label>
+	<p style="margin-left: 50;"><input type="text" name="id" id="id" placeholder="User ID" required>*<spam class="input-error" id="id-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="password" name="pw" id="pw" placeholder="Enter Password" required>*<spam class="input-error" id="pw-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="password" name="confirm-pw" id="confirm-pw" placeholder="Confirm Password" required>*<spam class="input-error" id="confirm-pw-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="name" id="name" placeholder="Name" required>*<spam class="input-error" id="name-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="nickname" id="nickname" placeholder="Nickname" required>*<spam class="input-error" id="nickname-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="email" id="email"placeholder="E-mail" required>*<spam class="input-error" id="email-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="street1" id="street1" placeholder="Street Address 1" required>*<spam class="input-error" id="street1-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="street2" id="street2" placeholder="Street Address 2" required><spam class="input-error" id="street2-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="city" id="city" placeholder="City" required>*<spam class="input-error" id="city-error"></spam></p>
+	<br>
+	<p style="margin-left: 50;"><label>State</label>
 	<select name="state" id="state">
 		<option value="AL">AL</option>
 		<option value="AK">AK</option>
@@ -74,17 +84,17 @@
 		<option value="WI">WI</option>
 		<option value="WY">WY</option>
 	</select>
-
-	<p style="margin-left: 20;"><input type="text" name="zip" id="zip" placeholder="Zip Code" required>*<spam class="input-error" id="zip-error"></spam></p>	
-	<p><input style="margin-left: 20;" type="submit" class="btn btn-success" id="create-account" value="Create Account"></p>
+	<br>
+	<br>
+	<p style="margin-left: 50;"><input type="text" name="zip" id="zip" placeholder="Zip Code" required>*<spam class="input-error" id="zip-error"></spam></p>	
+	<br>
+	<p style="margin-left:50;">By creating an account you are agreeing to our 
+	<a href="./terms.php">Terms of Use</a> and 
+	our <a href="./privacy.php">Privacy Policy</a>.</p>
+	<br>
+	<p><input style="margin-left: 50;" type="submit" class="btn btn-success" id="create-account" value="Create Account"></p>
 
 </form>
-
-
-<p style="margin-left:20;">By signing in or creating an account you are agreeing to our 
-<a href="./terms.php">Terms of Use</a> and 
-our <a href="./privacy.php">Privacy Policy</a>.</p>
-
 
 <script>
 
@@ -143,7 +153,7 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
   	//event constantly checks the pw field and verifies input
 	$("#pw").on("click keydown keyup change", function(){
 		if (pw.val().length < 8){
-  			$("#pw-error").text(" Min lenght 8 characters. \n Password must contain at least one uppercase and one digit");
+  			$("#pw-error").text(" Min length is 8 characters. \n Password must contain at least one uppercase letter and one digit");
    			canSubmitArray.pw = false;
   		} else if (!(pw.val().match(upperCase)) || !(pw.val().match(numbers))) {
   			$("#pw-error").text(" Password must contain at least one uppercase and one digit");
@@ -328,7 +338,7 @@ our <a href="./privacy.php">Privacy Policy</a>.</p>
 
   		if(canSubFinal == true && canSubmit == true){
    			$("#myForm").submit();
-   			alert("Account created sucessfully. Welcome!");
+   			alert("Account created successfully. Welcome to GeekText!");
  		 }
 	});
 
