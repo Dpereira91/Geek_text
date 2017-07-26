@@ -11,7 +11,7 @@
 <br>
 <br>
 <p style="text-align: center; font-size:2em">By <b> Tech Valley Times</b> &nbsp | &nbsp July 26, 2017</p>
-<p style="text-align: justify; padding-left:30%; padding-right:30%; font-size:1.5em;">
+<p style="text-align: justify; padding-left:27%; padding-right:27%; font-size:1.5em;">
 	It's that time of year again: the weather is getting chillier, the days are getting 
 	shorter, and there's nothing better than snuggling up and getting a good read. Even 
 	if you haven't picked up a book since The Fourth of July, fear not; we've gone 
