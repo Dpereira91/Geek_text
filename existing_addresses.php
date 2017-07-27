@@ -15,8 +15,8 @@
       <?php while( $row = mysqli_fetch_array( $result1 ) ){ ?>
        <form action="update_address.php" method="post">
       <tr> 
-          <td class="fit"><input type="text" value="<?php echo( htmlspecialchars( $row['street1'] ) ); ?>" name="street" placeholder="Street Address"></td>
-          <td class="fit"><input type="text" value="<?php echo( htmlspecialchars( $row['city'] ) ); ?>" name="city" placeholder="City"></td>
+          <td class="fit"><input type="text" value="<?php echo( htmlspecialchars( $row['street1'] ) ); ?>" name="street" placeholder="Street Address" required></td>
+          <td class="fit"><input type="text" value="<?php echo( htmlspecialchars( $row['city'] ) ); ?>" name="city" placeholder="City" required></td>
           <!-- <td class="fit"><input type="text" value="<?php echo( htmlspecialchars( $row['state'] ) ); ?>" name="state" placeholder="State Abbreviation"></td> -->
         <td>
           <select class="fit" name="state">
@@ -73,7 +73,7 @@
             <option value="WY" <?php if($row['state']=="WY") { ?> selected <?php } ?>>WY</option>
           </select>
         </td>
-          <td class="fit"><input type="number" size="5" maxlenght="5" value="<?php echo( htmlspecialchars( $row['zip_code'] ) ); ?>" name="zip" placeholder="Zip Code"></td>
+          <td class="fit"><input type="number" size="5" maxlenght="5" value="<?php echo( htmlspecialchars( $row['zip_code'] ) ); ?>" name="zip" placeholder="Zip Code" required></td>
           <td class="fit hidden-element"><input type="hidden" value="<?php echo (htmlspecialchars( $row['address_id']) ); ?>" name="addressId" placeholder="Address ID"></td>
           <td class="fit"><input type="radio" name="preferred" class="preferred-address" value="<?php echo htmlspecialchars($row['preferred']); ?>" 
 

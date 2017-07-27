@@ -177,7 +177,7 @@
 			            <option value="WY">WY</option>
 			          </select>
 					</td>
-					<td><input type="text" type="number" size="5" maxlenght="5" name="zip" placeholder="Zip Code" required></td>
+					<td><input type="number" size="5" maxlenght="5" name="zip" placeholder="Zip Code" required></td>
 					<td><input style="margin-left: 20;" type="submit" value="Add Address" class="btn btn-success"></td>
 					</tbody>	
 				</p>

@@ -20,7 +20,7 @@
       <?php while( $row = mysqli_fetch_array( $result2 ) ){ ?>
        <form action="update_card.php" method="post">
       <tr> 
-	        <td class="fit"><input type="number"  name="card_num" size="19" maxlenght="19" value="<?php echo htmlspecialchars($row['number']); ?>"></td>
+	        <td class="fit"><input type="number"  name="card_num" size="19" maxlenght="19" value="<?php echo htmlspecialchars($row['number']); ?>" required></td>
 	        <td class="fit">
 	        <select name="card_type">
 				<option value="Visa" <?php if($row['type']=="Visa") { ?> selected <?php } ?>>Visa</option>
@@ -28,7 +28,7 @@
 				<option value="AmericanExpress" <?php if($row['type']=="AmericanExpress") { ?> selected <?php } ?>>American Express</option>
 			</select>
 	        </td>
-	        <td class="fit"><input type="number"  name="cvv_num" size="4" maxlenght="4"value="<?php echo htmlspecialchars($row['csv_code']); ?>"></td>
+	        <td class="fit"><input type="number"  name="cvv_num" size="4" maxlenght="4"value="<?php echo htmlspecialchars($row['csv_code']); ?>" required></td>
 	        <td class="fit">
 	        <select name="exp_month">
 				<option value="1" <?php if($row['exp_month']=="01") { ?> selected <?php } ?>>01</option>
@@ -46,9 +46,9 @@
 			</select>
 	        </td>
 
-	        <td class="fit"><input type="number"  name="exp_year" size="4" maxlenght="4"value="<?php echo htmlspecialchars($row['exp_year']); ?>"></td>
-	        <td class="fit"><input type="text"  name="card_street" value="<?php echo htmlspecialchars($row['billing_street1']); ?>"></td>
-	        <td class="fit"><input type="text"  name="card_city" value="<?php echo htmlspecialchars($row['billing_city']); ?>"></td>
+	        <td class="fit"><input type="number"  name="exp_year" size="4" maxlenght="4"value="<?php echo htmlspecialchars($row['exp_year']); ?>" required></td>
+	        <td class="fit"><input type="text"  name="card_street" value="<?php echo htmlspecialchars($row['billing_street1']); ?>" required></td>
+	        <td class="fit"><input type="text"  name="card_city" value="<?php echo htmlspecialchars($row['billing_city']); ?>" required></td>
 	        <td class="fit">
 	        <select name="card_state">
 				<option value="AL" <?php if($row['billing_state']=="AL") { ?> selected <?php } ?>>AL</option>
@@ -104,7 +104,7 @@
 				<option value="WY" <?php if($row['billing_state']=="WY") { ?> selected <?php } ?>>WY</option>
 			</select>
 	        </td>
-	        <td class="fit"><input type="number"  name="card_zip" size="5" maxlenght="5" value="<?php echo htmlspecialchars($row['billing_zip_code']); ?>"></td>
+	        <td class="fit"><input type="number"  name="card_zip" size="5" maxlenght="5" value="<?php echo htmlspecialchars($row['billing_zip_code']); ?>" required></td>
 	        <td class="fit"><input type="radio" name="preferred" class="preferred-select" value="<?php echo htmlspecialchars($row['preferred']); ?>" 
                                                                       
 	        	<?php 
