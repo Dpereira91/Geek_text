@@ -114,9 +114,6 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`user_id`, `bookid`, `quantity`) VALUES
-('', 0, 2);
-
 -- --------------------------------------------------------
 
 --
