@@ -30,7 +30,7 @@
 	$result = mysqli_query($link, $sql);
 	
 	
-	echo'<p style="margin-left: 240px"><b>Books by Author:</b></p>';
+	echo'<br /><br /><br /><br /><p style="margin-left: 240px"><b>Books by Author:</b></p>';
 	
 	while($row=mysqli_fetch_array($result)){
 		include("display_book_helper.php");

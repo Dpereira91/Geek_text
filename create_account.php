@@ -239,7 +239,7 @@
   			$("#city-error").text(" Required field");
   			canSubmitArray.city = false;
   		} else if (alpha(city.val()) == false){
-  			$("#city-error").text(" City must be composed only of leters");
+  			$("#city-error").text(" City must be composed only of letters");
    			 canSubmitArray.city = false;
 		}else{
 	  		$("#city-error").text("");
