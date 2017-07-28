@@ -15,4 +15,4 @@ After installing XAMPP, please follow the instructions below:
 5. Go back to the XAMPP control panel and click the "Open Application Folder" button.
 6. In the directory that opens, open the htdocs folder.
 7. Place the folder containing the downloaded repository inside the htdocs folder. 
-8. Access `localhost/Geek_text-master` from your web browser. The website should be up and running. Sign up for account and start exploring!
+8. Access `localhost/Geek_text-master` from your web browser. The website should be up and running. Sign up for an account and start exploring!
